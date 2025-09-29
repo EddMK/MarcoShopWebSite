@@ -1,0 +1,29 @@
+.menu{
+    height: 10vh;
+    align-items: center;
+}
+.menu a {
+    display: inline-block;
+    text-decoration: none;
+    color : black;
+    margin-left: 1vw;
+    margin-right: 1vw;
+    text-align: center;
+    align-items: center;
+    font-size: 2vh;
+    vertical-align: middle;
+}
+
+.menu a img{
+    height: 8vh;
+    margin-top: 1vh;
+}
+
+.menu select{
+    border : none;
+    height: 4vh;
+    font-size: 2vh;
+    margin-left: 1vw;
+    margin-right: 1vw;
+    vertical-align: middle;
+}
