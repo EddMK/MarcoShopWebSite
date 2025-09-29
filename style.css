@@ -1,6 +1,7 @@
 .menu{
     height: 10vh;
     align-items: center;
+    display: inline-block;
 }
 .menu a {
     display: inline-block;
@@ -8,13 +9,13 @@
     color : black;
     margin-left: 1vw;
     margin-right: 1vw;
-    text-align: center;
+    justify-items:end;
     align-items: center;
     font-size: 2vh;
     vertical-align: middle;
 }
 
-.menu a img{
+.menu img{
     height: 8vh;
     margin-top: 1vh;
 }
@@ -26,4 +27,8 @@
     margin-left: 1vw;
     margin-right: 1vw;
     vertical-align: middle;
+}
+
+.menu_without_logo {
+    text-align: right;
 }
