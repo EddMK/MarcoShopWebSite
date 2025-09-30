@@ -1,34 +1,29 @@
 .menu{
-    height: 10vh;
-    align-items: center;
-    display: inline-block;
+    width: 100vw;
+    display: flex;
 }
-.menu a {
-    display: inline-block;
+
+.menu_with_logo img{
+    height: 10vh;
+}
+
+.menu_with_logo{
+    height: 10vh;
+    width: 70vw
+}
+
+.menu_without_logo{
+    height: 10vh;
+    width: 30vw;
+    display : flex;
+    align-items: center;
+    right: 0;
+    justify-content: flex-end;
+}
+
+.menu_without_logo a{
     text-decoration: none;
     color : black;
-    margin-left: 1vw;
-    margin-right: 1vw;
-    justify-items:end;
-    align-items: center;
-    font-size: 2vh;
-    vertical-align: middle;
-}
-
-.menu img{
-    height: 8vh;
-    margin-top: 1vh;
-}
-
-.menu select{
-    border : none;
-    height: 4vh;
-    font-size: 2vh;
-    margin-left: 1vw;
-    margin-right: 1vw;
-    vertical-align: middle;
-}
-
-.menu_without_logo {
-    text-align: right;
+    font-size: 20px;
+    padding: 5%;
 }
