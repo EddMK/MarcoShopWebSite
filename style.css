@@ -9,12 +9,12 @@
 
 .menu_with_logo{
     height: 10vh;
-    width: 70vw
+    width: 30vw;
 }
 
 .menu_without_logo{
     height: 10vh;
-    width: 30vw;
+    width: 62vw;
     display : flex;
     align-items: center;
     right: 0;
@@ -25,5 +25,38 @@
     text-decoration: none;
     color : black;
     font-size: 20px;
-    padding: 5%;
+    padding: 3%;
+}
+
+.menu_flag{
+    height: 10vh;
+    width: 8vw;
+    display : flex;
+    align-items: center;
+    position : relative;
+}
+
+.menu_flag button{
+    margin : auto;
+}
+
+.selection_flag{
+    position: absolute;
+    top : 8vh;
+    width: 8vw;
+    display: none;
+    border-radius : 5px;
+    background-color: lightgray;
+}
+
+.buttonOpenDialogToChangeLanguage{
+    background-color: transparent;
+    border: none;
+}
+
+.selection_flag button{
+    width: 8vw;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
 }

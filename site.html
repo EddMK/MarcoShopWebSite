@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
   <link rel="icon" type="image/x-icon" href="annexe/marco shop logo.jpg">
+  <script src='script.js'></script>
 </head>
 <body>
   <div class="menu">
@@ -16,6 +17,17 @@
       <a href="#">Services</a>
       <a href="#">Prix</a>
       <a href="#">Contactez-nous</a>
+    </div>
+    <div class="menu_flag">
+      <button class="buttonOpenDialogToChangeLanguage" onclick="openDialogToChangeLanguage()">
+        <img src="annexe/flagFrance.png" alt="flagFrance">
+        <img src="annexe/arrow.png" alt="arrowdown">
+      </button>
+      <div class="selection_flag" id="selectionFlag">
+        <button class="button button1" onclick="changeLanguage()"><img src="annexe/flagFrance.png" alt="flagFrance"></button>
+        <button class="button button1" onclick="changeLanguage()"><img src="annexe/flagNetherland.png" alt="flagNetherland"></button>
+        <button class="button button1" onclick="changeLanguage()"><img src="annexe/flagUk.png" alt="flagUk"></button>
+      </div>
     </div>
   </div>
 </body>
