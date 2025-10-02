@@ -1,19 +1,28 @@
+@font-face {
+  font-family: myFont; /* set name */
+  src: url(annexe/eusthalia-sans-stamped.otf); /* url of the font */
+}
+
+body{
+   font-family: myFont;
+}
+
 .menu{
     width: 100vw;
     display: flex;
 }
 
 .menu_with_logo img{
-    height: 10vh;
+    height: 15vh;
 }
 
 .menu_with_logo{
-    height: 10vh;
+    height: 15vh;
     width: 30vw;
 }
 
 .menu_without_logo{
-    height: 10vh;
+    height: 15vh;
     width: 62vw;
     display : flex;
     align-items: center;
@@ -24,12 +33,12 @@
 .menu_without_logo a{
     text-decoration: none;
     color : black;
-    font-size: 20px;
+    font-size: 15px;
     padding: 3%;
 }
 
 .menu_flag{
-    height: 10vh;
+    height: 15vh;
     width: 8vw;
     display : flex;
     align-items: center;
@@ -42,7 +51,7 @@
 
 .selection_flag{
     position: absolute;
-    top : 8vh;
+    top : 10vh;
     width: 8vw;
     display: none;
     border-radius : 5px;
@@ -53,10 +62,18 @@
     background-color: transparent;
     border: none;
 }
-
+/*
+.buttonOpenDialogToChangeLanguage::after{
+    content: url(annexe/arrow.png);
+}
+*/
 .selection_flag button{
     width: 8vw;
     background-color: transparent;
     border: none;
     cursor: pointer;
+}
+
+.buttonChangeLanguage:hover{
+    background-color: white;
 }
