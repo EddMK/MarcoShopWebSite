@@ -7,7 +7,7 @@ body{
    font-family: myFont;
 }
 
-.menu{
+header{
     width: 100vw;
     display: flex;
 }
@@ -59,14 +59,17 @@ body{
 }
 
 .buttonOpenDialogToChangeLanguage{
-    background-color: transparent;
     border: none;
 }
-/*
-.buttonOpenDialogToChangeLanguage::after{
-    content: url(annexe/arrow.png);
+.buttonOpenDialogToChangeLanguageImage{
+    display: inline-block;
+    vertical-align: middle;
 }
-*/
+/*
+.changeLanguage::after{
+    content: url(annexe/languages.png);
+}
+    */
 .selection_flag button{
     width: 8vw;
     background-color: transparent;
