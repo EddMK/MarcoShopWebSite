@@ -17,27 +17,19 @@
       <a href="#" id="textServices">Services</a>
       <a href="#" id="textPrix">Prix</a>
       <a href="#" id="textContact">Contactez-nous</a>
-    </div>
-    <div class="menu_flag">
-      <!---
-      <button class="buttonOpenDialogToChangeLanguage" onmouseover="openCloseDialogToChangeLanguage()">
-        <img src="annexe/flagFrance.png" alt="flagFrance"  id="imageFlagSelected">
-        <img src="annexe/arrow.png" alt="arrowdown" id="arrowDown">
-      </button>
-    -->
-      <div class="buttonOpenDialogToChangeLanguage" onmouseover="openCloseDialogToChangeLanguage()">
-        <div class="buttonOpenDialogToChangeLanguageImage">
-          <img src="annexe/flagFrance.png" alt="flagFrance"  id="imageFlagSelected">
+      <div class="menu_flag" onmouseover="openDialogToChangeLanguage()" onmouseout="closeDialogToChangeLanguage()">
+        <div class="menuFlagText" id="menuFlagText">
+          FR
         </div>
-        <div class="buttonOpenDialogToChangeLanguageImage">
-          <img src="annexe/arrow.png" alt="arrowdown" id="arrowDown">
+        <div class="menuFlagImage">
+          <img src="annexe/languages.png" alt="arrowdown" id="arrowDown">
         </div>
       </div>
-      <div class="selection_flag" id="selectionFlag">
-        <button class="buttonChangeLanguage" onclick="changeLanguage('fr')"><img src="annexe/flagFrance.png" alt="flagFrance"></button>
-        <button class="buttonChangeLanguage" onclick="changeLanguage('nl')"><img src="annexe/flagNetherland.png" alt="flagNetherland"></button>
-        <button class="buttonChangeLanguage" onclick="changeLanguage('uk')"><img src="annexe/flagUk.png" alt="flagUk"></button>
-      </div>
+      <div class="selection_flag" id="selectionFlag" onmouseover="openDialogToChangeLanguage()" onmouseout="closeDialogToChangeLanguage()">
+          <button class="buttonChangeLanguage" onclick="changeLanguage('fr')">FRANCAIS</button>
+          <button class="buttonChangeLanguage" onclick="changeLanguage('nl')">NEDERLANDS</button>
+          <button class="buttonChangeLanguage" onclick="changeLanguage('en')">ENGLISH</button>
+        </div>
     </div>
   </header>
 </body>

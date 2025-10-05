@@ -2,29 +2,26 @@ function changeLanguage(code) {
   console.log(code)
   document.getElementById("selectionFlag").style.display = "none";
   if (code === "fr"){
-    document.getElementById("imageFlagSelected").src = "annexe/flagFrance.png";
+    document.getElementById('menuFlagText').innerHTML = "FR"
     changeTextToFrench();
   }
   if (code === "nl"){
-    document.getElementById("imageFlagSelected").src = "annexe/flagNetherland.png";
+    document.getElementById('menuFlagText').innerHTML = "NL"
     changeTextToDutch();
   }
-  if (code === "uk"){
-    document.getElementById("imageFlagSelected").src = "annexe/flagUk.png";
+  if (code === "en"){
+    document.getElementById('menuFlagText').innerHTML = "EN"
     changeTextToEnglish();
   }
-  document.getElementById("arrowDown").style.transform = "rotate(0deg)";
+  closeDialogToChangeLanguage();
 }
 
-function openCloseDialogToChangeLanguage(){
-    var dialog = document.getElementById("selectionFlag").style.display
-    if (dialog === "block"){
-      document.getElementById("selectionFlag").style.display = "none";
-      document.getElementById("arrowDown").style.transform = "rotate(0deg)";
-    }else{ 
-      document.getElementById("selectionFlag").style.display = "block";
-      document.getElementById("arrowDown").style.transform = "rotate(180deg)";
-    }
+function openDialogToChangeLanguage(){
+    document.getElementById("selectionFlag").style.display = "block";
+}
+
+function closeDialogToChangeLanguage(){
+  document.getElementById("selectionFlag").style.display = "none";
 }
 
 function changeTextToDutch(){
