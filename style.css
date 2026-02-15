@@ -3,26 +3,34 @@
   src: url(annexe/eusthalia-sans-stamped.otf); /* url of the font */
 }
 
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
 body{
-   font-family: myFont;
+   /*font-family: myFont;*/
+   font-family: 'Montserrat', sans-serif;
 }
 
 header{
-    width: 100vw;
+    width: 100%;
     display: flex;
+    padding: 0px 8%;
 }
 
 .menu_with_logo img{
-    height: 15vh;
+    height: 10vh;
 }
 
 .menu_with_logo{
-    height: 15vh;
+    height: 10vh;
     width: 30vw;
 }
 
 .menu_without_logo{
-    height: 15vh;
+    height: 10vh;
     width: 70vw;
     display : flex;
     align-items: center;
@@ -33,17 +41,17 @@ header{
 .menu_without_logo a{
     text-decoration: none;
     color : black;
-    font-size: 15px;
+    font-size: 20px;
     padding: 3%;
 }
 
 .menu_flag{
-    height: 15vh;
+    height: 10vh;
     display : flex;
     align-items: center;
     position : relative;
     text-decoration: none;
-    font-size: 15px;
+    font-size: 20px;
     padding: 3%;
     width:3vw;
 }
@@ -54,11 +62,13 @@ header{
     top : 10vh;
     display: none;
     border-radius : 5px;
-    height:15vh;
+    height:10vh;
     width:5vw;
     padding: 1%;
     text-decoration: none;
-    font-size: 15px;
+    font-size: 20px;
+    z-index:1000;
+    background-color: white;
 }
 
 .menuFlagText{
@@ -77,9 +87,30 @@ header{
     cursor: pointer;
     width:5vw;
     height: 5vh;
-    font-family: myFont;
 }
 
 .buttonChangeLanguage:hover{
     background-color: lightgrey;
+}
+
+.first_image{
+    position: relative;
+}
+
+.first_image img{
+    height:90vh;
+    width:100vw;
+    /*border-radius: 20px;*/
+    /*opacity: 0.4;
+    filter: alpha(opacity=40); */
+}
+
+.first_image h1{
+    position : absolute;
+    bottom: 20vh;
+    left: 10vw;
+    color : white;
+    font-size: 5rem;
+    font-weight: 900;
+    line-height: 1.1;
 }
