@@ -1,0 +1,2333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MarcoShop</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="annexe/logo without name.jpg">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    function changeLanguage(code) {
+      console.log(code)
+      document.getElementById("selectionFlag").style.display = "none";
+      if (code === "fr"){
+        document.getElementById('menuFlagText').innerHTML = "FR"
+        changeTextToFrench();
+      }
+      if (code === "nl"){
+        document.getElementById('menuFlagText').innerHTML = "NL"
+        changeTextToDutch();
+      }
+      if (code === "en"){
+        document.getElementById('menuFlagText').innerHTML = "EN"
+        changeTextToEnglish();
+      }
+      closeDialogToChangeLanguage();
+    }
+
+    function openDialogToChangeLanguage(){
+      document.getElementById("selectionFlag").style.display = "flex";
+    }
+
+    function closeDialogToChangeLanguage(){
+      document.getElementById("selectionFlag").style.display = "none";
+    }
+
+    function changeTextToDutch(){
+      document.getElementById("textServices").innerHTML = "Dienst";
+      document.getElementById("textPrix").innerHTML = "Prijs";
+      document.getElementById("textContact").innerHTML = "Contacteer ons";
+      document.getElementById("heroTitle").innerHTML = "30 jaar expertise<br>om uw textiel de<br>beste verzorging te bieden";
+    }
+
+    function changeTextToEnglish(){
+      document.getElementById("textServices").innerHTML = "Services";
+      document.getElementById("textPrix").innerHTML = "Price";
+      document.getElementById("textContact").innerHTML = "Contact us";
+      document.getElementById("heroTitle").innerHTML = "30 years of expertise<br>to offer your textiles<br>the best care";
+    }
+
+    function changeTextToFrench(){
+      document.getElementById("textServices").innerHTML = "Services";
+      document.getElementById("textPrix").innerHTML = "Prix";
+      document.getElementById("textContact").innerHTML = "Contactez-nous";
+      document.getElementById("heroTitle").innerHTML = "30 ans d'expertise<br>pour offrir à vos textiles<br>le meilleur entretien";
+    }
+
+    // Scroll animations
+    window.addEventListener('scroll', function() {
+      const header = document.querySelector('header');
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+
+    // Page load animation
+    window.addEventListener('load', function() {
+      document.body.classList.add('loaded');
+    });
+
+    // Parallax effect
+    window.addEventListener('scroll', function() {
+      const scrolled = window.pageYOffset;
+      const hero = document.querySelector('.first_image img');
+      if (hero) {
+        hero.style.transform = `translateY(${scrolled * 0.5}px) scale(1.1)`;
+      }
+    });
+
+    // Text shimmer effect on hover
+    const heroTitle = document.querySelector('.first_image h1');
+    if (heroTitle) {
+      heroTitle.addEventListener('mouseenter', function() {
+        this.style.animation = 'none';
+        setTimeout(() => {
+          this.style.animation = 'textShimmer 1.5s ease-in-out';
+        }, 10);
+      });
+    }
+
+    // Mobile menu toggle
+    function toggleMobileMenu() {
+      const menuWithoutLogo = document.querySelector('.menu_without_logo');
+      const hamburger = document.querySelector('.hamburger');
+      menuWithoutLogo.classList.toggle('mobile-active');
+      hamburger.classList.toggle('active');
+    }
+
+    // Close mobile menu when clicking on a link
+    document.addEventListener('DOMContentLoaded', function() {
+      const menuLinks = document.querySelectorAll('.menu_without_logo a');
+      menuLinks.forEach(link => {
+        link.addEventListener('click', function() {
+          const menuWithoutLogo = document.querySelector('.menu_without_logo');
+          const hamburger = document.querySelector('.hamburger');
+          if (menuWithoutLogo.classList.contains('mobile-active')) {
+            menuWithoutLogo.classList.remove('mobile-active');
+            hamburger.classList.remove('active');
+          }
+        });
+      });
+    });
+  </script>
+  <style>
+    :root {
+      --primary-dark: #1a1a1a;
+      --primary-light: #ffffff;
+      --accent-gold: #d4af37;
+      --accent-bronze: #8b7355;
+      --accent-sage: #9caf88;
+      --accent-clay: #c4a57b;
+      --accent-gray: #f5f5f5;
+      --text-secondary: #666666;
+      --transition-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+      --transition-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      color: var(--primary-dark);
+      overflow-x: hidden;
+      opacity: 0;
+      transition: opacity 0.8s ease-out;
+      background: var(--primary-dark);
+    }
+
+    body.loaded {
+      opacity: 1;
+    }
+
+    /* Animated background shapes */
+    .bg-shapes {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .shape {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.03;
+      animation: float 20s infinite ease-in-out;
+    }
+
+    .shape-1 {
+      width: 300px;
+      height: 300px;
+      background: var(--accent-gold);
+      top: 10%;
+      left: 5%;
+      animation-delay: 0s;
+    }
+
+    .shape-2 {
+      width: 200px;
+      height: 200px;
+      background: var(--accent-sage);
+      top: 60%;
+      right: 10%;
+      animation-delay: 5s;
+    }
+
+    .shape-3 {
+      width: 150px;
+      height: 150px;
+      background: var(--accent-bronze);
+      bottom: 20%;
+      left: 30%;
+      animation-delay: 10s;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) translateX(0); }
+      25% { transform: translateY(-30px) translateX(20px); }
+      50% { transform: translateY(-60px) translateX(-20px); }
+      75% { transform: translateY(-30px) translateX(10px); }
+    }
+
+    /* HEADER STYLES - Enhanced with color accents */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 2rem 8%;
+      background: transparent;
+      z-index: 1000;
+      transition: all 0.5s var(--transition-smooth);
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, 
+        rgba(212, 175, 55, 0.05) 0%, 
+        rgba(156, 175, 136, 0.05) 100%);
+      opacity: 0;
+      transition: opacity 0.5s var(--transition-smooth);
+      z-index: -1;
+    }
+
+    header.scrolled::before {
+      opacity: 1;
+    }
+
+    header.scrolled {
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      padding: 1rem 8%;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    .menu_with_logo {
+      display: flex;
+      align-items: center;
+      transform: translateY(0);
+      animation: slideDown 0.8s var(--transition-smooth) 0.2s backwards;
+      position: relative;
+    }
+
+    .menu_with_logo::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent-gold), var(--accent-bronze));
+      transition: width 0.6s var(--transition-smooth);
+    }
+
+    .menu_with_logo:hover::after {
+      width: 100%;
+    }
+
+    .menu_with_logo img {
+      height: 60px;
+      transition: all 0.5s var(--transition-smooth);
+      filter: drop-shadow(0 4px 12px rgba(212, 175, 55, 0.2));
+    }
+
+    .menu_with_logo:hover img {
+      transform: scale(1.05) rotate(2deg);
+      filter: drop-shadow(0 6px 16px rgba(212, 175, 55, 0.3));
+    }
+
+    header.scrolled .menu_with_logo img {
+      height: 45px;
+    }
+
+    /* Hamburger Menu */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+      z-index: 1001;
+      transition: all 0.3s var(--transition-smooth);
+    }
+
+    .hamburger span {
+      width: 25px;
+      height: 2px;
+      background: var(--primary-dark);
+      transition: all 0.3s var(--transition-smooth);
+      border-radius: 2px;
+    }
+
+    header:not(.scrolled) .hamburger span {
+      background: var(--primary-light);
+    }
+
+    .hamburger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(6px, 6px);
+    }
+
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(6px, -6px);
+    }
+
+    .menu_without_logo {
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+      animation: slideDown 0.8s var(--transition-smooth) 0.4s backwards;
+    }
+
+    .menu_without_logo a {
+      text-decoration: none;
+      color: var(--primary-dark);
+      font-size: 15px;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      position: relative;
+      padding: 0.5rem 0;
+      transition: all 0.4s var(--transition-smooth);
+      text-transform: uppercase;
+    }
+
+    header:not(.scrolled) .menu_without_logo a {
+      color: var(--primary-light);
+      text-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    .menu_without_logo a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent-gold), var(--accent-sage));
+      transition: width 0.4s var(--transition-smooth);
+    }
+
+    header:not(.scrolled) .menu_without_logo a::after {
+      background: linear-gradient(90deg, var(--primary-light), rgba(255, 255, 255, 0.7));
+    }
+
+    .menu_without_logo a:hover::after {
+      width: 100%;
+    }
+
+    .menu_without_logo a:hover {
+      transform: translateY(-3px);
+      color: var(--accent-gold);
+    }
+
+    header:not(.scrolled) .menu_without_logo a:hover {
+      color: var(--primary-light);
+    }
+
+    /* LANGUAGE SELECTOR - Enhanced with gradient */
+    .menu_flag {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      position: relative;
+      padding: 0.5rem 1.2rem;
+      cursor: pointer;
+      border-radius: 50px;
+      transition: all 0.4s var(--transition-smooth);
+      background: transparent;
+      border: 1px solid transparent;
+      overflow: hidden;
+    }
+
+    .menu_flag::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, var(--accent-gold), var(--accent-sage));
+      opacity: 0;
+      transition: opacity 0.4s var(--transition-smooth);
+      z-index: -1;
+    }
+
+    header.scrolled .menu_flag {
+      border-color: rgba(212, 175, 55, 0.3);
+    }
+
+    header:not(.scrolled) .menu_flag {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      border-color: rgba(255, 255, 255, 0.3);
+    }
+
+    .menu_flag:hover::before {
+      opacity: 0.1;
+    }
+
+    .menu_flag:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(212, 175, 55, 0.2);
+    }
+
+    .menuFlagText {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      color: var(--primary-dark);
+      transition: all 0.3s var(--transition-smooth);
+    }
+
+    header:not(.scrolled) .menuFlagText {
+      color: var(--primary-light);
+    }
+
+    .menu_flag:hover .menuFlagText {
+      color: var(--accent-gold);
+    }
+
+    header:not(.scrolled) .menu_flag:hover .menuFlagText {
+      color: var(--primary-light);
+    }
+
+    .menuFlagImage {
+      display: flex;
+      align-items: center;
+      width: 16px;
+      height: 16px;
+      transition: transform 0.5s var(--transition-bounce);
+    }
+
+    .menu_flag:hover .menuFlagImage {
+      transform: rotate(180deg);
+    }
+
+    .menuFlagImage img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      filter: brightness(0);
+      transition: filter 0.3s var(--transition-smooth);
+    }
+
+    header:not(.scrolled) .menuFlagImage img {
+      filter: brightness(0) invert(1);
+    }
+
+    .selection_flag {
+      position: absolute;
+      top: calc(100% + 1rem);
+      right: 0;
+      display: none;
+      flex-direction: column;
+      gap: 0.25rem;
+      background: white;
+      border-radius: 16px;
+      padding: 0.75rem;
+      box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15);
+      min-width: 180px;
+      animation: dropdownFade 0.4s var(--transition-smooth);
+      border: 1px solid rgba(212, 175, 55, 0.2);
+      overflow: hidden;
+    }
+
+    .selection_flag::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(212, 175, 55, 0.05), rgba(156, 175, 136, 0.05));
+      pointer-events: none;
+    }
+
+    .selection_flag button {
+      background: transparent;
+      border: none;
+      padding: 0.85rem 1.2rem;
+      cursor: pointer;
+      text-align: left;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.3px;
+      border-radius: 10px;
+      transition: all 0.3s var(--transition-smooth);
+      color: var(--primary-dark);
+      font-family: 'DM Sans', sans-serif;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .selection_flag button::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.1), transparent);
+      transition: left 0.5s var(--transition-smooth);
+    }
+
+    .selection_flag button:hover::before {
+      left: 100%;
+    }
+
+    .selection_flag button:hover {
+      background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(156, 175, 136, 0.05));
+      transform: translateX(6px);
+      color: var(--accent-gold);
+    }
+
+    /* HERO SECTION - Enhanced with dynamic gradients */
+    .first_image {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .first_image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      animation: zoomIn 1.5s var(--transition-smooth) both;
+      transform: scale(1.1);
+    }
+
+    .gradient-overlay {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at 50% 50%, 
+        rgba(139, 115, 85, 0.3) 0%, 
+        rgba(26, 26, 26, 0.6) 50%, 
+        rgba(0, 0, 0, 0.7) 100%);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .first_image::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 40%;
+      background: linear-gradient(to top, 
+        rgba(0, 0, 0, 0.8) 0%, 
+        transparent 100%);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .hero-accent {
+      position: absolute;
+      bottom: 15vh;
+      left: 8%;
+      width: 100px;
+      height: 4px;
+      background: linear-gradient(90deg, var(--accent-gold), var(--accent-sage));
+      z-index: 3;
+      animation: expandWidth 1.2s var(--transition-smooth) 0.8s backwards;
+    }
+
+    .first_image h1 {
+      position: absolute;
+      bottom: 20vh;
+      left: 8%;
+      color: #e5d5c0;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.5rem, 5vw, 5.5rem);
+      font-weight: 300;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      z-index: 2;
+      max-width: 900px;
+      animation: slideUp 1.2s var(--transition-smooth) 0.6s backwards;
+      text-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+      cursor: pointer;
+      transition: all 0.5s var(--transition-smooth);
+    }
+
+    .first_image h1:hover {
+      transform: translateY(-5px);
+      text-shadow: 0 8px 40px rgba(212, 175, 55, 0.6);
+    }
+
+    .first_image h1::first-line {
+      color: #ffffff;
+      background: none;
+      -webkit-background-clip: unset;
+      -webkit-text-fill-color: #ffffff;
+      background-clip: unset;
+      text-shadow: 0 4px 35px rgba(255, 255, 255, 0.3);
+    }
+
+    @keyframes textShimmer {
+      0% {
+        text-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+      }
+      50% {
+        text-shadow: 0 8px 50px rgba(212, 175, 55, 0.8), 0 0 30px rgba(212, 175, 55, 0.5);
+      }
+      100% {
+        text-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+      }
+    }
+
+    /* Floating particles */
+    .particles {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .particle {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background: rgba(212, 175, 55, 0.6);
+      border-radius: 50%;
+      animation: rise 15s infinite ease-in;
+    }
+
+    .particle:nth-child(1) { left: 10%; animation-delay: 0s; }
+    .particle:nth-child(2) { left: 25%; animation-delay: 3s; }
+    .particle:nth-child(3) { left: 45%; animation-delay: 6s; }
+    .particle:nth-child(4) { left: 65%; animation-delay: 2s; }
+    .particle:nth-child(5) { left: 80%; animation-delay: 8s; }
+    .particle:nth-child(6) { left: 90%; animation-delay: 5s; }
+
+    @keyframes rise {
+      0% {
+        bottom: 0;
+        opacity: 0;
+      }
+      10% {
+        opacity: 0.8;
+      }
+      90% {
+        opacity: 0.3;
+      }
+      100% {
+        bottom: 100vh;
+        opacity: 0;
+      }
+    }
+
+    /* ANIMATIONS */
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(80px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes zoomIn {
+      from {
+        transform: scale(1.2);
+      }
+      to {
+        transform: scale(1.1);
+      }
+    }
+
+    @keyframes expandWidth {
+      from {
+        width: 0;
+      }
+      to {
+        width: 100px;
+      }
+    }
+
+    @keyframes dropdownFade {
+      from {
+        opacity: 0;
+        transform: translateY(-15px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      header {
+        padding: 1.5rem 5%;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      .menu_without_logo {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        height: 100vh;
+        width: 70%;
+        max-width: 300px;
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(20px);
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 6rem 2rem 2rem;
+        gap: 2rem;
+        box-shadow: -5px 0 20px rgba(0, 0, 0, 0.1);
+        transition: right 0.4s var(--transition-smooth);
+        z-index: 1000;
+      }
+
+      .menu_without_logo.mobile-active {
+        right: 0;
+      }
+
+      .menu_without_logo a {
+        color: var(--primary-dark) !important;
+        font-size: 16px;
+        text-shadow: none !important;
+        width: 100%;
+        padding: 0.75rem 0;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      }
+
+      .menu_without_logo a::after {
+        background: var(--accent-gold) !important;
+      }
+
+      .menu_flag {
+        width: 100%;
+        padding: 0.75rem 0;
+        justify-content: space-between;
+        background: transparent !important;
+        border: none !important;
+      }
+
+      .menuFlagText {
+        color: var(--primary-dark) !important;
+      }
+
+      .menuFlagImage img {
+        filter: brightness(0) !important;
+      }
+
+      .selection_flag {
+        position: relative;
+        top: 0;
+        right: 0;
+        width: 100%;
+        min-width: 100%;
+        margin-top: 0.5rem;
+      }
+
+      .first_image h1 {
+        bottom: 15vh;
+        left: 5%;
+        font-size: clamp(2rem, 8vw, 3rem);
+      }
+
+      .hero-accent {
+        left: 5%;
+        bottom: 12vh;
+      }
+    }
+
+    /* ENHANCED MOBILE RESPONSIVENESS */
+    @media (max-width: 480px) {
+      /* Mobile Header */
+      header {
+        padding: 1rem 5%;
+      }
+
+      .menu_with_logo img {
+        height: 50px;
+      }
+
+      header.scrolled .menu_with_logo img {
+        height: 40px;
+      }
+
+      .menu_without_logo {
+        gap: 1rem;
+      }
+
+      .menu_without_logo a {
+        font-size: 11px;
+        padding: 0.3rem 0;
+      }
+
+      .menu_flag {
+        padding: 0.4rem 0.8rem;
+      }
+
+      .menuFlagText {
+        font-size: 11px;
+      }
+
+      .menuFlagImage {
+        width: 14px;
+        height: 14px;
+      }
+
+      /* Mobile Hero */
+      .first_image h1 {
+        bottom: 12vh;
+        left: 5%;
+        font-size: clamp(1.8rem, 7vw, 2.5rem);
+        line-height: 1.3;
+      }
+
+      .hero-accent {
+        width: 60px;
+        bottom: 9vh;
+      }
+
+      .particles {
+        display: none;
+      }
+
+      /* Mobile Services */
+      .services-section {
+        padding: 4rem 5%;
+      }
+
+      .services-header h2 {
+        font-size: 1.8rem;
+      }
+
+      .services-subtitle {
+        font-size: 1rem;
+      }
+
+      .section-label {
+        font-size: 11px;
+        padding: 0.4rem 1.2rem;
+      }
+
+      .service-card {
+        padding: 1.8rem 1.3rem;
+      }
+
+      .service-icon {
+        width: 50px;
+        height: 50px;
+      }
+
+      .service-card h3 {
+        font-size: 1.5rem;
+      }
+
+      .service-card p {
+        font-size: 0.9rem;
+      }
+
+      /* Mobile Pricing */
+      .pricing-section {
+        padding: 4rem 5%;
+      }
+
+      .pricing-header h2 {
+        font-size: 1.8rem;
+      }
+
+      .pricing-subtitle {
+        font-size: 1rem;
+      }
+
+      .pricing-category {
+        padding: 1.3rem;
+      }
+
+      .category-header h3 {
+        font-size: 1.3rem;
+      }
+
+      .category-header svg {
+        width: 24px;
+        height: 24px;
+      }
+
+      .price-item {
+        padding: 0.5rem 0.6rem;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.3rem;
+      }
+
+      .item-name {
+        font-size: 0.85rem;
+      }
+
+      .item-price {
+        font-size: 0.9rem;
+        font-weight: 700;
+      }
+
+      .price-item.highlight .item-price {
+        font-size: 1rem;
+      }
+
+      /* Mobile Contact */
+      .contact-section {
+        padding: 4rem 5%;
+      }
+
+      .contact-header h2 {
+        font-size: 1.8rem;
+      }
+
+      .contact-subtitle {
+        font-size: 1rem;
+      }
+
+      .contact-card {
+        padding: 1.3rem;
+        gap: 1rem;
+      }
+
+      .contact-icon {
+        width: 45px;
+        height: 45px;
+        min-width: 45px;
+      }
+
+      .contact-icon svg {
+        width: 22px;
+        height: 22px;
+      }
+
+      .contact-details h3 {
+        font-size: 1.15rem;
+      }
+
+      .contact-details p {
+        font-size: 0.95rem;
+      }
+
+      .opening-hours .day,
+      .opening-hours .hours {
+        font-size: 0.9rem;
+      }
+
+      .social-link {
+        padding: 0.6rem 0.9rem;
+      }
+
+      .social-link svg {
+        width: 20px;
+        height: 20px;
+      }
+
+      .social-link span {
+        font-size: 0.9rem;
+      }
+
+      .contact-cta {
+        padding: 2rem 1.5rem;
+      }
+
+      .contact-cta p {
+        font-size: 1rem;
+      }
+
+      .cta-button {
+        padding: 0.9rem 1.5rem;
+        font-size: 0.9rem;
+      }
+
+      .contact-map {
+        height: 300px;
+      }
+
+      /* Mobile Footer */
+      .footer {
+        padding: 2rem 5%;
+      }
+
+      .footer-logo img {
+        height: 40px;
+      }
+
+      .footer-info p {
+        font-size: 0.85rem;
+      }
+
+      .footer-social a {
+        width: 36px;
+        height: 36px;
+      }
+
+      .footer-social svg {
+        width: 18px;
+        height: 18px;
+      }
+    }
+
+    /* Extra Small Mobile Devices */
+    @media (max-width: 360px) {
+      .menu_without_logo a {
+        font-size: 10px;
+      }
+
+      .first_image h1 {
+        font-size: 1.5rem;
+      }
+
+      .services-header h2,
+      .pricing-header h2,
+      .contact-header h2 {
+        font-size: 1.6rem;
+      }
+
+      .contact-content {
+        gap: 2rem;
+      }
+    }
+
+    /* SERVICES SECTION */
+    .services-section {
+      background: linear-gradient(to bottom, #fafafa 0%, #ffffff 100%);
+      padding: 8rem 8%;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .services-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
+    }
+
+    .services-container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .services-header {
+      text-align: center;
+      margin-bottom: 5rem;
+      animation: fadeInUp 0.8s var(--transition-smooth) 0.2s backwards;
+    }
+
+    .section-label {
+      display: inline-block;
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--accent-gold);
+      margin-bottom: 1.5rem;
+      padding: 0.5rem 1.5rem;
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      border-radius: 50px;
+      background: rgba(212, 175, 55, 0.05);
+    }
+
+    .services-header h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.5rem, 4vw, 4rem);
+      font-weight: 400;
+      color: var(--primary-dark);
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+    }
+
+    .services-subtitle {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      font-weight: 400;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+      margin-top: 4rem;
+    }
+
+    .service-card {
+      background: white;
+      padding: 2.5rem 2rem;
+      border-radius: 16px;
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      transition: all 0.4s var(--transition-smooth);
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      animation: fadeInUp 0.8s var(--transition-smooth) backwards;
+    }
+
+    .service-card:nth-child(1) { animation-delay: 0.3s; }
+    .service-card:nth-child(2) { animation-delay: 0.4s; }
+    .service-card:nth-child(3) { animation-delay: 0.5s; }
+    .service-card:nth-child(4) { animation-delay: 0.6s; }
+    .service-card:nth-child(5) { animation-delay: 0.7s; }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(212, 175, 55, 0.03), rgba(156, 175, 136, 0.03));
+      opacity: 0;
+      transition: opacity 0.4s var(--transition-smooth);
+    }
+
+    .service-card::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 3px;
+      height: 0;
+      background: linear-gradient(180deg, var(--accent-gold), var(--accent-sage));
+      transition: height 0.4s var(--transition-smooth);
+    }
+
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+      border-color: rgba(212, 175, 55, 0.2);
+    }
+
+    .service-card:hover::before {
+      opacity: 1;
+    }
+
+    .service-card:hover::after {
+      height: 100%;
+    }
+
+    .service-icon {
+      width: 60px;
+      height: 60px;
+      margin-bottom: 1.5rem;
+      color: var(--accent-gold);
+      transition: all 0.4s var(--transition-smooth);
+    }
+
+    .service-card:hover .service-icon {
+      transform: scale(1.1) rotate(5deg);
+      color: var(--accent-bronze);
+    }
+
+    .service-icon svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    .service-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.75rem;
+      font-weight: 500;
+      color: var(--primary-dark);
+      margin-bottom: 1rem;
+      transition: color 0.3s var(--transition-smooth);
+    }
+
+    .service-card:hover h3 {
+      color: var(--accent-gold);
+    }
+
+    .service-card p {
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: var(--text-secondary);
+      margin-bottom: 0;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* RESPONSIVE SERVICES */
+    @media (max-width: 1024px) {
+      .services-section {
+        padding: 6rem 5%;
+      }
+
+      .services-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .services-section {
+        padding: 5rem 5%;
+      }
+
+      .services-header {
+        margin-bottom: 3rem;
+      }
+
+      .services-header h2 {
+        font-size: 2rem;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+      }
+
+      .service-card {
+        padding: 2rem 1.5rem;
+      }
+    }
+
+    /* PRICING SECTION */
+    .pricing-section {
+      background: var(--primary-dark);
+      padding: 8rem 8%;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pricing-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
+    }
+
+    .pricing-container {
+      max-width: 1600px;
+      margin: 0 auto;
+    }
+
+    .pricing-header {
+      text-align: center;
+      margin-bottom: 5rem;
+      animation: fadeInUp 0.8s var(--transition-smooth) 0.2s backwards;
+    }
+
+    .pricing-header .section-label {
+      background: rgba(212, 175, 55, 0.1);
+      border-color: rgba(212, 175, 55, 0.4);
+    }
+
+    .pricing-header h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.5rem, 4vw, 4rem);
+      font-weight: 400;
+      color: var(--primary-light);
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+    }
+
+    .pricing-subtitle {
+      font-size: 1.1rem;
+      color: rgba(255, 255, 255, 0.7);
+      font-weight: 400;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .pricing-categories {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      gap: 2.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .pricing-category {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      padding: 2rem;
+      transition: all 0.4s var(--transition-smooth);
+      animation: fadeInUp 0.8s var(--transition-smooth) backwards;
+      backdrop-filter: blur(10px);
+    }
+
+    .pricing-category:nth-child(1) { animation-delay: 0.3s; }
+    .pricing-category:nth-child(2) { animation-delay: 0.4s; }
+    .pricing-category:nth-child(3) { animation-delay: 0.5s; }
+    .pricing-category:nth-child(4) { animation-delay: 0.6s; }
+    .pricing-category:nth-child(5) { animation-delay: 0.7s; }
+    .pricing-category:nth-child(6) { animation-delay: 0.8s; }
+    .pricing-category:nth-child(7) { animation-delay: 0.9s; }
+    .pricing-category:nth-child(8) { animation-delay: 1.0s; }
+
+    .pricing-category:hover {
+      background: rgba(255, 255, 255, 0.05);
+      border-color: rgba(212, 175, 55, 0.3);
+      transform: translateY(-5px);
+    }
+
+    .category-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .category-header h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: var(--accent-gold);
+      margin: 0;
+    }
+
+    .category-header svg {
+      width: 28px;
+      height: 28px;
+      color: var(--accent-gold);
+      opacity: 0.6;
+    }
+
+    .pricing-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .price-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.75rem 1rem;
+      border-radius: 8px;
+      transition: all 0.3s var(--transition-smooth);
+      background: transparent;
+    }
+
+    .price-item:hover {
+      background: rgba(255, 255, 255, 0.05);
+      transform: translateX(5px);
+    }
+
+    .price-item.highlight {
+      background: rgba(212, 175, 55, 0.08);
+      border: 1px solid rgba(212, 175, 55, 0.2);
+    }
+
+    .price-item.highlight:hover {
+      background: rgba(212, 175, 55, 0.12);
+    }
+
+    .item-name {
+      font-size: 0.95rem;
+      color: rgba(255, 255, 255, 0.9);
+      font-weight: 400;
+    }
+
+    .price-item.highlight .item-name {
+      color: var(--accent-gold);
+      font-weight: 500;
+    }
+
+    .item-price {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--primary-light);
+      letter-spacing: 0.3px;
+    }
+
+    .price-item.highlight .item-price {
+      color: var(--accent-gold);
+      font-size: 1.1rem;
+    }
+
+    .pricing-note {
+      text-align: center;
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .pricing-note p {
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.5);
+      font-style: italic;
+    }
+
+    /* RESPONSIVE PRICING */
+    @media (max-width: 1200px) {
+      .pricing-categories {
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 2rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .pricing-section {
+        padding: 5rem 5%;
+      }
+
+      .pricing-header {
+        margin-bottom: 3rem;
+      }
+
+      .pricing-header h2 {
+        font-size: 2rem;
+      }
+
+      .pricing-categories {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .pricing-category {
+        padding: 1.5rem;
+      }
+
+      .price-item {
+        padding: 0.6rem 0.75rem;
+      }
+
+      .item-name {
+        font-size: 0.88rem;
+      }
+
+      .item-price {
+        font-size: 0.95rem;
+      }
+    }
+
+    /* CONTACT SECTION */
+    .contact-section {
+      background: linear-gradient(to bottom, #ffffff 0%, #fafafa 100%);
+      padding: 8rem 8%;
+      position: relative;
+    }
+
+    .contact-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
+    }
+
+    .contact-container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .contact-header {
+      text-align: center;
+      margin-bottom: 5rem;
+      animation: fadeInUp 0.8s var(--transition-smooth) 0.2s backwards;
+    }
+
+    .contact-header h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.5rem, 4vw, 4rem);
+      font-weight: 400;
+      color: var(--primary-dark);
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+    }
+
+    .contact-subtitle {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      font-weight: 400;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .contact-content {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      animation: fadeInUp 0.8s var(--transition-smooth) 0.4s backwards;
+    }
+
+    .contact-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 16px;
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      display: flex;
+      gap: 1.5rem;
+      align-items: flex-start;
+      transition: all 0.4s var(--transition-smooth);
+    }
+
+    .contact-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+      border-color: rgba(212, 175, 55, 0.3);
+    }
+
+    .contact-icon {
+      width: 50px;
+      height: 50px;
+      min-width: 50px;
+      background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(156, 175, 136, 0.1));
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent-gold);
+      transition: all 0.4s var(--transition-smooth);
+    }
+
+    .contact-card:hover .contact-icon {
+      transform: rotate(5deg) scale(1.1);
+      background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(156, 175, 136, 0.2));
+    }
+
+    .contact-icon svg {
+      width: 26px;
+      height: 26px;
+    }
+
+    .contact-details h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-weight: 500;
+      color: var(--primary-dark);
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-details p {
+      font-size: 1rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .contact-details a {
+      color: var(--accent-gold);
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s var(--transition-smooth);
+    }
+
+    .contact-details a:hover {
+      color: var(--accent-bronze);
+      text-decoration: underline;
+    }
+
+    .opening-hours {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+    }
+
+    .opening-hours p {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .opening-hours p:last-child {
+      border-bottom: none;
+    }
+
+    .opening-hours .day {
+      font-weight: 500;
+      color: var(--primary-dark);
+      font-size: 0.95rem;
+    }
+
+    .opening-hours .hours {
+      color: var(--accent-gold);
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .opening-hours .closed-day {
+      color: var(--text-secondary);
+    }
+
+    .opening-hours .closed {
+      color: var(--text-secondary);
+      font-style: italic;
+    }
+
+    .social-card {
+      background: linear-gradient(135deg, rgba(212, 175, 55, 0.05), rgba(156, 175, 136, 0.05));
+    }
+
+    .social-links {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .social-link {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 0.75rem 1rem;
+      background: white;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: all 0.3s var(--transition-smooth);
+      border: 1px solid rgba(0, 0, 0, 0.06);
+    }
+
+    .social-link:hover {
+      transform: translateX(8px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .social-link svg {
+      width: 24px;
+      height: 24px;
+      transition: transform 0.3s var(--transition-smooth);
+    }
+
+    .social-link:hover svg {
+      transform: scale(1.1);
+    }
+
+    .social-link.facebook {
+      color: #1877f2;
+    }
+
+    .social-link.instagram {
+      color: #e4405f;
+    }
+
+    .social-link span {
+      font-weight: 500;
+      font-size: 0.95rem;
+    }
+
+    .contact-cta {
+      background: var(--primary-dark);
+      padding: 2.5rem 2rem;
+      border-radius: 16px;
+      text-align: center;
+      margin-top: 1rem;
+    }
+
+    .contact-cta p {
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+      font-weight: 400;
+    }
+
+    .cta-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 1rem 2rem;
+      background: linear-gradient(135deg, var(--accent-gold), var(--accent-sage));
+      color: white;
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1rem;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      transition: all 0.4s var(--transition-smooth);
+    }
+
+    .cta-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
+    }
+
+    .cta-button svg {
+      width: 20px;
+      height: 20px;
+      transition: transform 0.3s var(--transition-smooth);
+    }
+
+    .cta-button:hover svg {
+      transform: translateX(5px);
+    }
+
+    .contact-map {
+      height: 600px;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+      animation: fadeInUp 0.8s var(--transition-smooth) 0.6s backwards;
+      border: 1px solid rgba(0, 0, 0, 0.06);
+    }
+
+    /* FOOTER */
+    .footer {
+      background: var(--primary-dark);
+      padding: 3rem 8%;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .footer-content {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .footer-logo img {
+      height: 50px;
+      filter: brightness(0) invert(1);
+      opacity: 0.8;
+      transition: opacity 0.3s var(--transition-smooth);
+    }
+
+    .footer-logo:hover img {
+      opacity: 1;
+    }
+
+    .footer-info {
+      flex: 1;
+      text-align: center;
+    }
+
+    .footer-info p {
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 0.9rem;
+      margin: 0.25rem 0;
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .footer-social a {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 50%;
+      color: rgba(255, 255, 255, 0.6);
+      transition: all 0.3s var(--transition-smooth);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .footer-social a:hover {
+      background: var(--accent-gold);
+      color: white;
+      transform: translateY(-3px);
+      border-color: var(--accent-gold);
+    }
+
+    .footer-social svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    /* RESPONSIVE CONTACT */
+    @media (max-width: 1024px) {
+      .contact-content {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+
+      .contact-map {
+        height: 450px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .contact-section {
+        padding: 5rem 5%;
+      }
+
+      .contact-header {
+        margin-bottom: 3rem;
+      }
+
+      .contact-header h2 {
+        font-size: 2rem;
+      }
+
+      .contact-card {
+        padding: 1.5rem;
+        gap: 1rem;
+      }
+
+      .contact-icon {
+        width: 45px;
+        height: 45px;
+        min-width: 45px;
+      }
+
+      .contact-map {
+        height: 350px;
+      }
+
+      .footer-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 1.5rem;
+      }
+
+      .footer-info {
+        order: 2;
+      }
+
+      .footer-social {
+        order: 3;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-shapes">
+    <div class="shape shape-1"></div>
+    <div class="shape shape-2"></div>
+    <div class="shape shape-3"></div>
+  </div>
+
+  <header>
+    <div class="menu_with_logo">
+      <img src="annexe/logo without name.jpg" alt="Logo">
+    </div>
+    <button class="hamburger" onclick="toggleMobileMenu()" aria-label="Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <div class="menu_without_logo">
+      <a href="#services" id="textServices">Services</a>
+      <a href="#prix" id="textPrix">Prix</a>
+      <a href="#contact" id="textContact">Contactez-nous</a>
+      <div class="menu_flag" onmouseover="openDialogToChangeLanguage()" onmouseout="closeDialogToChangeLanguage()">
+        <div class="menuFlagText" id="menuFlagText">FR</div>
+        <div class="menuFlagImage">
+          <img src="annexe/languages.png" alt="language selector">
+        </div>
+        <div class="selection_flag" id="selectionFlag" onmouseover="openDialogToChangeLanguage()" onmouseout="closeDialogToChangeLanguage()">
+          <button class="buttonChangeLanguage" onclick="changeLanguage('fr')">FRANÇAIS</button>
+          <button class="buttonChangeLanguage" onclick="changeLanguage('nl')">NEDERLANDS</button>
+          <button class="buttonChangeLanguage" onclick="changeLanguage('en')">ENGLISH</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="first_image">
+    <img src="annexe/chemises.jpg" alt="Chemises">
+    <div class="gradient-overlay"></div>
+    <div class="particles">
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+    </div>
+    <div class="hero-accent"></div>
+    <h1 id="heroTitle">30 ans d'expertise<br>pour offrir à vos textiles<br>le meilleur entretien</h1>
+  </div>
+
+  <!-- SERVICES SECTION -->
+  <section class="services-section" id="services">
+    <div class="services-container">
+      <div class="services-header">
+        <div class="section-label">Nos Services</div>
+        <h2>Excellence textile<br>sur mesure</h2>
+        <p class="services-subtitle">Des solutions professionnelles pour chaque besoin</p>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z"/>
+            </svg>
+          </div>
+          <h3>Nettoyage à sec</h3>
+          <p>Traitement délicat et professionnel de vos vêtements les plus précieux avec des produits de haute qualité.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M3 6h18M3 12h18M3 18h18"/>
+            </svg>
+          </div>
+          <h3>Blanchisserie</h3>
+          <p>Service de blanchisserie complet pour vos textiles du quotidien. Lavage, repassage et pliage impeccable.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M4 4v16h16V4H4zM8 4v16M16 4v16"/>
+            </svg>
+          </div>
+          <h3>Rideaux</h3>
+          <p>Nettoyage expert de vos rideaux et voilages. Redonnez éclat et fraîcheur à votre décoration intérieure.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="3" y="3" width="18" height="18" rx="2"/>
+              <path d="M3 9h18M9 3v18"/>
+            </svg>
+          </div>
+          <h3>Tapis</h3>
+          <p>Nettoyage en profondeur de vos tapis et moquettes. Techniques spécialisées pour tous types de fibres.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+            </svg>
+          </div>
+          <h3>Retouche</h3>
+          <p>Service de retouche et réparation textile. Ourlets, ajustements et modifications sur mesure par nos artisans.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING SECTION -->
+  <section class="pricing-section" id="prix">
+    <div class="pricing-container">
+      <div class="pricing-header">
+        <div class="section-label">Nos Tarifs</div>
+        <h2>Tarification<br>transparente</h2>
+        <p class="pricing-subtitle">Des prix justes pour un service de qualité exceptionnelle</p>
+      </div>
+
+      <div class="pricing-categories">
+        
+        <!-- Vêtements Category -->
+        <div class="pricing-category">
+          <div class="category-header">
+            <h3>Vêtements</h3>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z"/>
+            </svg>
+          </div>
+          <div class="pricing-grid">
+            <div class="price-item"><span class="item-name">Pantalon / sans pli</span><span class="item-price">8,50 €</span></div>
+            <div class="price-item"><span class="item-name">Pantalon lin / soie</span><span class="item-price">11,50 €</span></div>
+            <div class="price-item"><span class="item-name">Jupe</span><span class="item-price">8,50 €</span></div>
+            <div class="price-item"><span class="item-name">Jupe avec pli</span><span class="item-price">12,00 €</span></div>
+            <div class="price-item"><span class="item-name">Jupe longue</span><span class="item-price">13,50 €</span></div>
+            <div class="price-item"><span class="item-name">Jupe longue avec pli</span><span class="item-price">17,00 €</span></div>
+            <div class="price-item"><span class="item-name">Robe</span><span class="item-price">13,00 €</span></div>
+            <div class="price-item"><span class="item-name">Robe pliée</span><span class="item-price">19,00 €</span></div>
+            <div class="price-item"><span class="item-name">Robe longue</span><span class="item-price">20,50 €</span></div>
+            <div class="price-item highlight"><span class="item-name">Robe de soirée</span><span class="item-price">35,90 €</span></div>
+            <div class="price-item highlight"><span class="item-name">Robe de mariée</span><span class="item-price">130,00 €</span></div>
+            <div class="price-item"><span class="item-name">Djellaba</span><span class="item-price">24,00 €</span></div>
+            <div class="price-item"><span class="item-name">Salopette</span><span class="item-price">20,50 €</span></div>
+          </div>
+        </div>
+
+        <!-- Costumes & Chemises Category -->
+        <div class="pricing-category">
+          <div class="category-header">
+            <h3>Costumes & Chemises</h3>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M8.5 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM20 8v6M23 11h-6"/>
+            </svg>
+          </div>
+          <div class="pricing-grid">
+            <div class="price-item"><span class="item-name">Costume</span><span class="item-price">20,50 €</span></div>
+            <div class="price-item"><span class="item-name">Costume lin / soie</span><span class="item-price">25,50 €</span></div>
+            <div class="price-item"><span class="item-name">Costume 3 pièces</span><span class="item-price">27,00 €</span></div>
+            <div class="price-item"><span class="item-name">Gilet Costume</span><span class="item-price">7,00 €</span></div>
+            <div class="price-item"><span class="item-name">Cravate</span><span class="item-price">7,90 €</span></div>
+            <div class="price-item"><span class="item-name">Chemise sur cintre</span><span class="item-price">5,00 €</span></div>
+            <div class="price-item"><span class="item-name">Chemise pliée</span><span class="item-price">5,50 €</span></div>
+            <div class="price-item"><span class="item-name">Chemise en soie</span><span class="item-price">9,30 €</span></div>
+            <div class="price-item"><span class="item-name">Chemisier</span><span class="item-price">11,70 €</span></div>
+            <div class="price-item"><span class="item-name">Chemisier en soie</span><span class="item-price">12,50 €</span></div>
+            <div class="price-item"><span class="item-name">Chemisier spécial</span><span class="item-price">16,00 €</span></div>
+            <div class="price-item"><span class="item-name">Chemisier sans manche</span><span class="item-price">11,30 €</span></div>
+          </div>
+        </div>
+
+        <!-- Pulls & Vestes Category -->
+        <div class="pricing-category">
+          <div class="category-header">
+            <h3>Pulls & Vestes</h3>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4M4 7l8 4m-8-4v10l8 4m0-10v10"/>
+            </svg>
+          </div>
+          <div class="pricing-grid">
+            <div class="price-item"><span class="item-name">Pull / Polo / Gilet</span><span class="item-price">7,50 €</span></div>
+            <div class="price-item"><span class="item-name">Pull spécial</span><span class="item-price">9,50 €</span></div>
+            <div class="price-item"><span class="item-name">Sweater</span><span class="item-price">7,50 €</span></div>
+            <div class="price-item"><span class="item-name">Twinset</span><span class="item-price">13,50 €</span></div>
+            <div class="price-item"><span class="item-name">Veste</span><span class="item-price">12,00 €</span></div>
+            <div class="price-item"><span class="item-name">Veste lin / soie</span><span class="item-price">14,00 €</span></div>
+            <div class="price-item"><span class="item-name">Foulard</span><span class="item-price">10,50 €</span></div>
+            <div class="price-item"><span class="item-name">Echarpe</span><span class="item-price">6,50 €</span></div>
+            <div class="price-item"><span class="item-name">Bonnet / Casquette</span><span class="item-price">7,50 €</span></div>
+          </div>
+        </div>
+
+        <!-- Manteaux Category -->
+        <div class="pricing-category">
+          <div class="category-header">
+            <h3>Manteaux & Blousons</h3>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M12 6v6l4 2"/>
+            </svg>
+          </div>
+          <div class="pricing-grid">
+            <div class="price-item"><span class="item-name">Manteau</span><span class="item-price">19,00 €</span></div>
+            <div class="price-item"><span class="item-name">Manteau court</span><span class="item-price">16,30 €</span></div>
+            <div class="price-item"><span class="item-name">Bodywarmer</span><span class="item-price">16,50 €</span></div>
+            <div class="price-item"><span class="item-name">Blouson doublé</span><span class="item-price">19,30 €</span></div>
+            <div class="price-item"><span class="item-name">Blouson / Anorak</span><span class="item-price">18,80 €</span></div>
+            <div class="price-item"><span class="item-name">Veste Duvet</span><span class="item-price">27,50 €</span></div>
+            <div class="price-item"><span class="item-name">Manteau Duvet</span><span class="item-price">30,50 €</span></div>
+            <div class="price-item"><span class="item-name">Imperméable</span><span class="item-price">17,00 €</span></div>
+            <div class="price-item"><span class="item-name">Manteau Imperméable</span><span class="item-price">20,30 €</span></div>
+          </div>
+        </div>
+
+        <!-- SKI Category -->
+        <div class="pricing-category">
+          <div class="category-header">
+            <h3>Équipement SKI</h3>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+            </svg>
+          </div>
+          <div class="pricing-grid">
+            <div class="price-item"><span class="item-name">Pantalon SKI</span><span class="item-price">14,00 €</span></div>
+            <div class="price-item"><span class="item-name">Anorak SKI</span><span class="item-price">18,80 €</span></div>
+            <div class="price-item"><span class="item-name">Pack SKI</span><span class="item-price">24,00 €</span></div>
+            <div class="price-item"><span class="item-name">Bonnet de SKI</span><span class="item-price">8,00 €</span></div>
+          </div>
+        </div>
+
+        <!-- Literie Category -->
+        <div class="pricing-category">
+          <div class="category-header">
+            <h3>Literie & Couettes</h3>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="3" y="11" width="18" height="10" rx="2"/>
+              <path d="M7 11V7a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v4"/>
+            </svg>
+          </div>
+          <div class="pricing-grid">
+            <div class="price-item"><span class="item-name">Plaid</span><span class="item-price">15,00 €</span></div>
+            <div class="price-item"><span class="item-name">Courverture 1p.</span><span class="item-price">24,00 €</span></div>
+            <div class="price-item"><span class="item-name">Courverture 2p.</span><span class="item-price">28,00 €</span></div>
+            <div class="price-item"><span class="item-name">Couette 1p.</span><span class="item-price">24,00 €</span></div>
+            <div class="price-item"><span class="item-name">Couette 2p.</span><span class="item-price">28,00 €</span></div>
+            <div class="price-item"><span class="item-name">Couette en plume 1p.</span><span class="item-price">29,00 €</span></div>
+            <div class="price-item"><span class="item-name">Couette en plume 2p.</span><span class="item-price">35,00 €</span></div>
+            <div class="price-item"><span class="item-name">Drap 1p.</span><span class="item-price">4,50 €</span></div>
+            <div class="price-item"><span class="item-name">Drap 2p.</span><span class="item-price">5,50 €</span></div>
+            <div class="price-item"><span class="item-name">Housse de couette 1p.</span><span class="item-price">6,00 €</span></div>
+            <div class="price-item"><span class="item-name">Housse de couette 2p.</span><span class="item-price">6,80 €</span></div>
+            <div class="price-item"><span class="item-name">Taie d'oreiller</span><span class="item-price">2,20 €</span></div>
+            <div class="price-item"><span class="item-name">Traversin</span><span class="item-price">2,60 €</span></div>
+          </div>
+        </div>
+
+        <!-- Rideaux & Tapis Category -->
+        <div class="pricing-category">
+          <div class="category-header">
+            <h3>Rideaux & Tapis</h3>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="3" y="3" width="18" height="18" rx="2"/>
+              <path d="M3 9h18M9 3v18"/>
+            </svg>
+          </div>
+          <div class="pricing-grid">
+            <div class="price-item"><span class="item-name">Rideaux/m²</span><span class="item-price">5,30 €</span></div>
+            <div class="price-item"><span class="item-name">Tentures/m²</span><span class="item-price">7,40 €</span></div>
+            <div class="price-item"><span class="item-name">Tentures doublée/m²</span><span class="item-price">7,90 €</span></div>
+            <div class="price-item"><span class="item-name">Tentures black-out/m²</span><span class="item-price">13,50 €</span></div>
+            <div class="price-item highlight"><span class="item-name">Tapis en soie/m²</span><span class="item-price">42,00 €</span></div>
+            <div class="price-item"><span class="item-name">Tapis/m²</span><span class="item-price">22,00 €</span></div>
+          </div>
+        </div>
+
+        <!-- Linge de Table & Divers Category -->
+        <div class="pricing-category">
+          <div class="category-header">
+            <h3>Linge de Table & Divers</h3>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M3 9h18M3 15h18M12 3v18"/>
+            </svg>
+          </div>
+          <div class="pricing-grid">
+            <div class="price-item"><span class="item-name">Nappe</span><span class="item-price">9,50 €</span></div>
+            <div class="price-item"><span class="item-name">Petite nappe</span><span class="item-price">4,10 €</span></div>
+            <div class="price-item"><span class="item-name">Nappe ronde</span><span class="item-price">8,90 €</span></div>
+            <div class="price-item"><span class="item-name">Grande nappe</span><span class="item-price">13,00 €</span></div>
+            <div class="price-item"><span class="item-name">Serviette</span><span class="item-price">1,50 €</span></div>
+            <div class="price-item"><span class="item-name">Un ensemble</span><span class="item-price">10,00 €</span></div>
+            <div class="price-item"><span class="item-name">Vêtements religieux</span><span class="item-price">16,80 €</span></div>
+            <div class="price-item"><span class="item-name">Pantalon Pyjama</span><span class="item-price">3,50 €</span></div>
+            <div class="price-item"><span class="item-name">Veste Pyjama</span><span class="item-price">3,50 €</span></div>
+            <div class="price-item"><span class="item-name">Tablier</span><span class="item-price">5,60 €</span></div>
+            <div class="price-item"><span class="item-name">Tablier à Sangle</span><span class="item-price">4,20 €</span></div>
+            <div class="price-item"><span class="item-name">Couverture de couchage</span><span class="item-price">5,20 €</span></div>
+            <div class="price-item"><span class="item-name">Peignoir</span><span class="item-price">6,50 €</span></div>
+            <div class="price-item"><span class="item-name">Essuie</span><span class="item-price">1,50 €</span></div>
+            <div class="price-item"><span class="item-name">Essuie de bain</span><span class="item-price">2,00 €</span></div>
+            <div class="price-item"><span class="item-name">Mouchoir en tissus</span><span class="item-price">1,00 €</span></div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="pricing-note">
+        <p>* Les prix sont indicatifs et peuvent varier selon l'état et la complexité du textile</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section class="contact-section" id="contact">
+    <div class="contact-container">
+      <div class="contact-header">
+        <div class="section-label">Contact</div>
+        <h2>Venez nous<br>rencontrer</h2>
+        <p class="contact-subtitle">Notre équipe est à votre service pour répondre à toutes vos questions</p>
+      </div>
+
+      <div class="contact-content">
+        <!-- Contact Info -->
+        <div class="contact-info">
+          
+          <div class="contact-card">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                <circle cx="12" cy="10" r="3"/>
+              </svg>
+            </div>
+            <div class="contact-details">
+              <h3>Adresse</h3>
+              <p>Av. Louis De Brouckère 47<br>1083 Ganshoren</p>
+            </div>
+          </div>
+
+          <div class="contact-card">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+              </svg>
+            </div>
+            <div class="contact-details">
+              <h3>Téléphone</h3>
+              <p><a href="tel:+3224270750">02 427 07 50</a></p>
+            </div>
+          </div>
+
+          <div class="contact-card">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                <polyline points="22,6 12,13 2,6"/>
+              </svg>
+            </div>
+            <div class="contact-details">
+              <h3>Email</h3>
+              <p><a href="/cdn-cgi/l/email-protection#f69a939b97849599859e9986b6919b979f9ad895999b"><span class="__cf_email__" data-cfemail="90fcf5fdf1e2f3ffe3f8ffe0d0f7fdf1f9fcbef3fffd">[email&#160;protected]</span></a></p>
+            </div>
+          </div>
+
+          <div class="contact-card">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M12 6v6l4 2"/>
+              </svg>
+            </div>
+            <div class="contact-details">
+              <h3>Horaires d'ouverture</h3>
+              <div class="opening-hours">
+                <p><span class="day">Lundi - Vendredi</span><span class="hours">9h00 - 18h00</span></p>
+                <p><span class="day">Samedi</span><span class="hours">9h00 - 12h30</span></p>
+                <p><span class="day closed-day">Dimanche</span><span class="hours closed">Fermé</span></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-card social-card">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37zM17.5 6.5h.01"/>
+              </svg>
+            </div>
+            <div class="contact-details">
+              <h3>Suivez-nous</h3>
+              <div class="social-links">
+                <a href="https://www.facebook.com/p/Marcoshop-Brussels-100077880581617/" target="_blank" rel="noopener noreferrer" class="social-link facebook">
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                  </svg>
+                  <span>Facebook</span>
+                </a>
+                <a href="https://www.instagram.com/marcoshop_brussels/" target="_blank" rel="noopener noreferrer" class="social-link instagram">
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"/>
+                  </svg>
+                  <span>Instagram</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-cta">
+            <p>Prêt à confier vos textiles à nos experts ?</p>
+            <a href="tel:+3224270750" class="cta-button">
+              <span>Appelez-nous</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </a>
+          </div>
+
+        </div>
+
+        <!-- Map -->
+        <div class="contact-map">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2517.8234567890123!2d4.308888!3d50.869444!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c3c3e5e5e5e5e5%3A0x5e5e5e5e5e5e5e5e!2sAv.%20Louis%20De%20Brouck%C3%A8re%2047%2C%201083%20Ganshoren!5e0!3m2!1sen!2sbe!4v1234567890123!5m2!1sen!2sbe"
+            width="100%" 
+            height="100%" 
+            style="border:0; border-radius: 16px;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-logo">
+        <img src="annexe/logo without name.jpg" alt="MarcoShop Logo">
+      </div>
+      <div class="footer-info">
+        <p>&copy; 2024 MarcoShop. Tous droits réservés.</p>
+        <p>30 ans d'expertise au service de vos textiles</p>
+      </div>
+      <div class="footer-social">
+        <a href="https://www.facebook.com/p/Marcoshop-Brussels-100077880581617/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+          </svg>
+        </a>
+        <a href="https://www.instagram.com/marcoshop_brussels/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.
