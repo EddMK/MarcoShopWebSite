@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <title>MarcoShop</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/x-icon" href="annexe/logo without name.jpg">
+  <link rel="icon" type="image/x-icon" href="annexe/logo without name transparent.png">
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
   <script>
@@ -261,7 +261,12 @@
       width: 0;
       height: 2px;
       background: linear-gradient(90deg, var(--accent-gold), var(--accent-bronze));
+      /*background: var(--primary-light);*/
       transition: width 0.6s var(--transition-smooth);
+    }
+
+    header:not(.scrolled) .menu_with_logo::after {
+      background: var(--primary-light);
     }
 
     .menu_with_logo:hover::after {
@@ -274,9 +279,10 @@
       filter: drop-shadow(0 4px 12px rgba(212, 175, 55, 0.2));
     }
 
-    .menu_with_logo:hover img {
+    header.scrolled .menu_with_logo:hover img {
       transform: scale(1.05) rotate(2deg);
       filter: drop-shadow(0 6px 16px rgba(212, 175, 55, 0.3));
+      content:url("annexe/logo gold.png");
     }
 
     header.scrolled .menu_with_logo img {
@@ -342,6 +348,10 @@
     header:not(.scrolled) .menu_without_logo a {
       color: var(--primary-light);
       text-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+    }
+    /*ICIMALKE*/
+    header:not(.scrolled) .menu_with_logo img {
+      filter: brightness(0) invert(1);
     }
 
     .menu_without_logo a::after {
@@ -1953,7 +1963,7 @@ header:not(.scrolled) .header-social-link:hover {
 
   <header>
     <div class="menu_with_logo">
-      <img src="annexe/logo without name.jpg" alt="Logo">
+      <img src="annexe/logo without name transparent.png" alt="MarcoShop Logo">
     </div>
     <button class="hamburger" onclick="toggleMobileMenu()" aria-label="Menu">
       <span></span>
@@ -2087,6 +2097,16 @@ header:not(.scrolled) .header-social-link:hover {
           </div>
           <h3>Service à domicile</h3>
           <p>Nous récupérons vos vêtements chez vous, les nettoyons en blanchisserie et vous les livrons frais et impeccables à domicile. Simplicité, confort et qualité professionnelle… sans bouger de chez vous !</p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">
+            <svg version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve" fill="#d4af37"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <style type="text/css"> .st0{fill:#d4af37;} </style> <g> 
+              <path class="st0" d="M470.537,137.504H41.471C18.565,137.504,0,156.077,0,178.976v56.797l211.507,44.607V252.1h87.772v28.28 L512,235.489v-56.513C512,156.077,493.435,137.504,470.537,137.504z"></path> <path class="st0" d="M299.279,369.129h-87.772v-57.017L14.633,273.012V439.81c0,22.898,18.557,41.47,41.455,41.47h399.824 c22.898,0,41.463-18.572,41.463-41.47V272.721l-198.096,39.39V369.129z"></path> <rect x="233.452" y="274.044" class="st0" width="43.882" height="73.132"></rect> <path class="st0" d="M193.786,72.206c0.008-1.703,0.638-3.057,1.75-4.208c1.127-1.103,2.49-1.718,4.176-1.734h112.577 c1.686,0.016,3.058,0.631,4.185,1.734c1.103,1.151,1.726,2.505,1.733,4.208v29.627h35.546V72.206 c0.008-11.41-4.665-21.875-12.143-29.329c-7.446-7.485-17.934-12.166-29.321-12.158H199.712 c-11.394-0.008-21.875,4.673-29.32,12.158c-7.47,7.454-12.158,17.918-12.135,29.329v29.627h35.529V72.206z"></path> </g> </g>
+            </svg>
+          </div>
+          <h3>Service aux entreprises</h3>
+          <p>Nous offrons un service dédié aux entreprises pour le nettoyage de vêtements professionnels. Une solution pratique et économique pour les entreprises souhaitant maintenir un standing impeccable, restaurants, taxis, maisons de repos, hôtelerie.</p>
         </div>
 
     </div>
@@ -2416,7 +2436,7 @@ header:not(.scrolled) .header-social-link:hover {
   <footer class="footer">
     <div class="footer-content">
       <div class="footer-logo">
-        <img src="annexe/logo without name.jpg" alt="MarcoShop Logo">
+        <img src="annexe/logo without name transparent.png" alt="MarcoShop Logo">
       </div>
       <div class="footer-info">
         <p>&copy; 2024 MarcoShop. Tous droits réservés.</p>
