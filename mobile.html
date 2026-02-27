@@ -593,7 +593,7 @@ header:not(.scrolled) .header-social-link:hover {
     .first_image {
       position: relative;
       width: 100vw;
-      height: 100vh;
+      height: 50vh;
       overflow: hidden;
     }
 
@@ -647,16 +647,16 @@ header:not(.scrolled) .header-social-link:hover {
 
     .first_image h1 {
       position: absolute;
-      bottom: 20vh;
+      bottom: 10vh;
       left: 8%;
       color: #e5d5c0;
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2.5rem, 5vw, 5.5rem);
-      font-weight: 300;
+      font-size: 50px; /*clamp(2.5rem, 5vw, 5.5rem);*/
+      font-weight: 600;
       line-height: 1.2;
       letter-spacing: -0.02em;
       z-index: 2;
-      max-width: 900px;
+      max-width: 1200px;
       animation: slideUp 1.2s var(--transition-smooth) 0.6s backwards;
       text-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
       cursor: pointer;
@@ -670,6 +670,7 @@ header:not(.scrolled) .header-social-link:hover {
 
     .first_image h1::first-line {
       color: #ffffff;
+      font-size: 100px;
       background: none;
       -webkit-background-clip: unset;
       -webkit-text-fill-color: #ffffff;
@@ -940,7 +941,7 @@ header:not(.scrolled) .header-social-link:hover {
 
       /* Mobile Services */
       .services-section {
-        padding: 4rem 5%;
+        padding: 4rem 4%;
       }
 
       .services-header h2 {
@@ -1139,7 +1140,7 @@ header:not(.scrolled) .header-social-link:hover {
     /* SERVICES SECTION */
     .services-section {
       background: linear-gradient(to bottom, #fafafa 0%, #ffffff 100%);
-      padding: 8rem 8%;
+      /*padding: 8rem 8%;*/
       position: relative;
       overflow: hidden;
     }
@@ -2016,16 +2017,19 @@ header:not(.scrolled) .header-social-link:hover {
       <div class="particle"></div>
     </div>
     <div class="hero-accent"></div>
-    <h1 id="heroTitle">30 ans d'expertise<br>pour offrir à vos textiles<br>le meilleur entretien</h1>
+    <h1 id="heroTitle">Marco Shop<br>Votre blanchisserie de confiance à Bruxelles (Ganshoren)<br>Un linge impeccable, un service rapide et un soin professionnel pour tous vos textiles.<br></h1>
   </div>
 
   <!-- SERVICES SECTION -->
   <section class="services-section" id="services">
     <div class="services-container">
       <div class="services-header">
+        <!---
         <div class="section-label">Nos Services</div>
+        
         <h2>Excellence textile<br>sur mesure</h2>
         <p class="services-subtitle">Des solutions professionnelles pour chaque besoin</p>
+        -->
       </div>
 
       <div class="services-grid">
