@@ -1095,7 +1095,7 @@ header:not(.scrolled) .header-social-link:hover {
 
     .first_image h1::first-line {
       color: #ffffff;
-      font-size: 100px;
+      font-size: clamp(2.5rem, 10vw, 6rem);
       background: none;
       -webkit-background-clip: unset;
       -webkit-text-fill-color: #ffffff;
@@ -2455,6 +2455,18 @@ header:not(.scrolled) .header-social-link:hover {
 
       .footer-social {
         order: 3;
+      }
+    }
+
+    @media (max-width: 390px) {
+      .first_image h1 {
+        bottom: 10vh;
+        font-size: clamp(0.85rem, 3vw, 1rem);
+        line-height: 1.5;
+      }
+
+      .first_image h1::first-line {
+        font-size: clamp(2rem, 9vw, 2.5rem);
       }
     }
   </style>
