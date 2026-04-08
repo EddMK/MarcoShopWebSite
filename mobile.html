@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/x-icon" href="annexe/logo without name transparent.png">
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+  <!--link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">-->
   <!--<link rel="stylesheet" href="style.css">-->
   <script src="https://maps.googleapis.com/maps/api/js?key=TA_CLE_API&libraries=places"></script>
   <script>
@@ -36,21 +36,21 @@
     }
 
     function changeTextToDutch(){
-      document.getElementById("textServices").innerHTML = "Dienst";
-      document.getElementById("textPrix").innerHTML = "Prijs";
+      document.getElementById("textServices").innerHTML = "Diensten";
+      document.getElementById("textPrix").innerHTML = "Prijzen";
       document.getElementById("textContact").innerHTML = "Contacteer ons";
       document.getElementById("heroTitle").innerHTML = "Marco Shop<br>Uw vertrouwde wasserij in Brussel (Ganshoren)<br>Onberispelijke was, snelle service en professionele zorg voor al uw textiel.<br>";
       document.getElementById("buttonSwitchToFrench").innerHTML = "FRANS"; 
       document.getElementById("buttonSwitchToDutch").innerHTML = "NEDERLANDS"; 
       document.getElementById("buttonSwitchToEnglish").innerHTML = "ENGELS"; 
       document.getElementById("service_title_nettoyageasec").innerHTML = "Stomerij";
-      document.getElementById("service_description_nettoyageasec").innerHTML = "Zorgvuldige en professionele behandeling van uw meest waardevolle kledingstukken met hoogwaardige producten.";
+      document.getElementById("service_description_nettoyageasec").innerHTML = "Zorgvuldige en professionele behandeling van uw meest waardevolle kledingstukken met hoogwaardige onze producten.";
       document.getElementById("service_title_blanchisserie").innerHTML = "Wasserij";
-      document.getElementById("service_description_blanchisserie").innerHTML = "We wassen uw dagelijkse kleding en uw meest waardevolle stukken: avondjurken, trouwjurken, pakken... We reinigen ook al uw huishoudlinnen - lakens, dekbedden, tafelkleden, hoeslakens, kussens - met professionele methoden die zachtheid, frisheid en onberispelijke reinheid garanderen."; 
-      document.getElementById("service_title_rideaux").innerHTML = "Gordijnen/Vitrage";
-      document.getElementById("service_description_rideaux").innerHTML = "Professionele reiniging van uw gordijnen en draperieën. Geef uw interieur weer een frisse en stralende uitstraling.";
+      document.getElementById("service_description_blanchisserie").innerHTML = "We wassen uw dagelijkse kleding en uw meest waardevolle stukken: avondjurken, trouwjurken, kostums... We reinigen ook al uw huishoudlinnen - lakens, dekbedden, tafelkleden, hoeslakens, kussens - met professionele methodes die zachtheid, frisheid en onberispelijke reiniging garanderen."; 
+      document.getElementById("service_title_rideaux").innerHTML = "Gordijnen";
+      document.getElementById("service_description_rideaux").innerHTML = "Professionele reiniging van uw gordijnen en overgordijnen. Geef uw interieur weer een frisse en stralende uitstraling.";
       document.getElementById("service_title_tapis").innerHTML = "Tapijten";
-      document.getElementById("service_description_tapis").innerHTML = "Grondige reiniging van uw tapijten en vloerkleden. Gespecialiseerde technieken voor alle soorten vezels.";
+      document.getElementById("service_description_tapis").innerHTML = "Grondige reiniging van uw tapijten. Gespecialiseerde technieken voor alle soorten vezels.";
       document.getElementById("service_title_retouche").innerHTML = "Kledingveranderingen";
       document.getElementById("service_description_retouche").innerHTML = "Textielveranderings- en reparatieservice. Maatwerk zomen, aanpassingen en veranderingen door onze professionele kleermaker.";
       document.getElementById("service_title_cuir").innerHTML = "Leer/Suède";
@@ -58,86 +58,86 @@
       document.getElementById("service_title_domicile").innerHTML = "Service aan huis";
       document.getElementById("service_description_domicile").innerHTML = "Wij halen uw kleding bij u thuis op, laten deze professioneel reinigen en bezorgen deze fris en schoon weer bij u aan de deur. Eenvoud, gemak en professionele kwaliteit… allemaal zonder dat u de deur uit hoeft!";
       document.getElementById("service_title_entreprises").innerHTML = "Zakelijke dienstverlening";
-      document.getElementById("service_description_entreprises").innerHTML = "Wij bieden een speciale reinigingsservice voor bedrijfskleding. Een praktische en voordelige oplossing voor bedrijven die een onberispelijk imago willen behouden, zoals restaurants, taxibedrijven, verzorgingstehuizen en hotels.";
+      document.getElementById("service_description_entreprises").innerHTML = "Wij bieden een speciale reinigingsservice voor bedrijfskleding. Een praktische en voordelige oplossing voor bedrijven die een onberispelijk imago willen behouden, zoals restaurants, taxibedrijven, verzorgingstehuizen en hotels, enz...";
       document.getElementById("pricing_title").innerHTML = "Prijzen";
-      document.getElementById("price_pantalonsanspli").innerHTML = "Broek / Effen";
-      document.getElementById("price_pantalonlin").innerHTML = "Linnen / Zijden broek";
+      document.getElementById("price_pantalonsanspli").innerHTML = "Broek / zonder plooi";
+      document.getElementById("price_pantalonlin").innerHTML = "Broek linnen / zijde";
       document.getElementById("price_jupe").innerHTML = "Rok";
-      document.getElementById("price_jupeavecpli").innerHTML = "Geplooide rok";
-      document.getElementById("price_jupelongue").innerHTML = "Lange rok";
-      document.getElementById("price_jupelongueavecdecli").innerHTML = "Lange geplooide rok";
+      document.getElementById("price_jupeavecpli").innerHTML = "Rok met plooi";
+      document.getElementById("price_jupelongue").innerHTML = "Rok lang";
+      document.getElementById("price_jupelongueavecdecli").innerHTML = "Rok lang met plooi";
       document.getElementById("price_title_pantalon").innerHTML = "Broeken/Rokken";
-      document.getElementById("price_title_robe").innerHTML = "Jurken";
-      document.getElementById("price_robe").innerHTML = "Jurk";
-      document.getElementById("price_robepliee").innerHTML = "Geplooide jurk";
-      document.getElementById("price_robelongue").innerHTML = "Lange jurk";
-      document.getElementById("price_robedesoirée").innerHTML = "Avondjurk";
-      document.getElementById("price_robedmariée").innerHTML = "Trouwjurk";
+      document.getElementById("price_title_robe").innerHTML = "Kleden";
+      document.getElementById("price_robe").innerHTML = "Kleed";
+      document.getElementById("price_robepliee").innerHTML = "Kleed met plooi";
+      document.getElementById("price_robelongue").innerHTML = "Kleed lang";
+      document.getElementById("price_robedesoirée").innerHTML = "Avondkleed";
+      document.getElementById("price_robedmariée").innerHTML = "Trouwkleed";
       document.getElementById("price_djellaba").innerHTML = "Djellaba";
       document.getElementById("price_title_costumes").innerHTML = "Pakken";
-      document.getElementById("price_costume").innerHTML = "Pak";
-      document.getElementById("price_costumelin").innerHTML = "Linnen/zijden pak";
-      document.getElementById("price_costume3pieces").innerHTML = "3-delig pak";
-      document.getElementById("price_giletcostume").innerHTML = "Vest";
-      document.getElementById("price_cravatte").innerHTML = "Stropdas";
-      document.getElementById("price_chemisesurcintre").innerHTML = "Overhemd aan een hanger";
-      document.getElementById("price_chemisepliee").innerHTML = "Opgevouwen overhemd";
-      document.getElementById("price_chemisesoie").innerHTML = "Zijden overhemd";
-      document.getElementById("price_chemisier").innerHTML = "Blouse";
-      document.getElementById("price_chemisiersoie").innerHTML = "Zijden blouse";
-      document.getElementById("price_chemisierspecial").innerHTML = "Speciale blouse";
-      document.getElementById("price_chemisiersansmanche").innerHTML = "Mouwloze blouse";
-      document.getElementById("price_title_chemises").innerHTML = "Overhemden";
+      document.getElementById("price_costume").innerHTML = "Kostuum";
+      document.getElementById("price_costumelin").innerHTML = "Kostuum linnen / zijde";
+      document.getElementById("price_costume3pieces").innerHTML = "Kostuum 3-stuks";
+      document.getElementById("price_giletcostume").innerHTML = "Gilet kostuum";
+      document.getElementById("price_cravatte").innerHTML = "Das";
+      document.getElementById("price_chemisesurcintre").innerHTML = "Hemd op kapstok";
+      document.getElementById("price_chemisepliee").innerHTML = "Hemd geplooid";
+      document.getElementById("price_chemisesoie").innerHTML = "Hemd in zijde";
+      document.getElementById("price_chemisier").innerHTML = "Bloese";
+      document.getElementById("price_chemisiersoie").innerHTML = "Bloese in zijde";
+      document.getElementById("price_chemisierspecial").innerHTML = "Bloese speciaal";
+      document.getElementById("price_chemisiersansmanche").innerHTML = "Blouse zonder mouw";
+      document.getElementById("price_title_chemises").innerHTML = "Hemden";
       document.getElementById("price_title_pulls").innerHTML = "Truien";
-      document.getElementById("price_pullpologilet").innerHTML = "Trui / Polo / Cardigan";
-      document.getElementById("price_pullspecial").innerHTML = "Speciale trui";
-      document.getElementById("price_sweater").innerHTML = "Trui";
+      document.getElementById("price_pullpologilet").innerHTML = "Pull / Polo / Gilet";
+      document.getElementById("price_pullspecial").innerHTML = "Pull speciaal";
+      document.getElementById("price_sweater").innerHTML = "Sweater";
       document.getElementById("price_twinset").innerHTML = "Twinset";
-      document.getElementById("price_foulard").innerHTML = "Sjaal";
-      document.getElementById("price_echarpe").innerHTML = "Tas";
+      document.getElementById("price_foulard").innerHTML = "Foulard";
+      document.getElementById("price_echarpe").innerHTML = "Sjaal";
       document.getElementById("price_bonnet").innerHTML = "Muts / Pet";
-      document.getElementById("price_title_blouson").innerHTML = "Jas";
+      document.getElementById("price_title_blouson").innerHTML = "Blouson";
       document.getElementById("price_bodywarmer").innerHTML = "Bodywarmer";
-      document.getElementById("price_blousondouble").innerHTML = "Gevoerde jas";
-      document.getElementById("price_blousonanorak").innerHTML = "Jas / Anorak";
-      document.getElementById("price_vesteduvet").innerHTML = "Donsjas";
-      document.getElementById("price_manteauduvet").innerHTML = "Donsmantel";
-      document.getElementById("price_impermeable").innerHTML = "Waterdicht";
-      document.getElementById("price_manteauimpermeable").innerHTML = "Waterdichte jas";
-      document.getElementById("price_title_veste").innerHTML = "Jassen/Mantels";
-      document.getElementById("price_veste").innerHTML = "Jas";
-      document.getElementById("price_vestelin").innerHTML = "Linnen/Zijden Jas";
+      document.getElementById("price_blousondouble").innerHTML = "Blouson gevoerde";
+      document.getElementById("price_blousonanorak").innerHTML = "Blouson / Anorak";
+      document.getElementById("price_vesteduvet").innerHTML = "Vest pluimen";
+      document.getElementById("price_manteauduvet").innerHTML = "Mantel pluimen";
+      document.getElementById("price_impermeable").innerHTML = "Regenjas";
+      document.getElementById("price_manteauimpermeable").innerHTML = "Regenmantel";
+      document.getElementById("price_title_veste").innerHTML = "Blezer/Mantels";
+      document.getElementById("price_veste").innerHTML = "Vest";
+      document.getElementById("price_vestelin").innerHTML = "Vest linnen/zijde";
       document.getElementById("price_manteau").innerHTML = "Mantel";
-      document.getElementById("price_manteaucourt").innerHTML = "Korte Jas";
+      document.getElementById("price_manteaucourt").innerHTML = "Mantel 3/4";
       document.getElementById("price_title_ski").innerHTML = "Ski-uitrusting";
-      document.getElementById("price_pantalonski").innerHTML = "Skibroek";
-      document.getElementById("price_anorakski").innerHTML = "Ski-anorak";
-      document.getElementById("price_packski").innerHTML = "Skirugzak";
-      document.getElementById("price_bonnetski").innerHTML = "Skimuts";
+      document.getElementById("price_pantalonski").innerHTML = "SKI Broek";
+      document.getElementById("price_anorakski").innerHTML = "SKI Vest";
+      document.getElementById("price_packski").innerHTML = "SKI Pak";
+      document.getElementById("price_bonnetski").innerHTML = "SKI Muts";
       document.getElementById("price_title_rideau").innerHTML = "Gordijnen";
       document.getElementById("price_rideau").innerHTML = "Gordijnen";
-      document.getElementById("price_tentures").innerHTML = "Draperie"; 
-      document.getElementById("price_tenturesdouble").innerHTML = "Gevoerde gordijnen";
-      document.getElementById("price_tenturesblackout").innerHTML = "Verduisterende gordijnen";
+      document.getElementById("price_tentures").innerHTML = "Gordijn embras"; 
+      document.getElementById("price_tenturesdouble").innerHTML = "Gordijn gevoerd";
+      document.getElementById("price_tenturesblackout").innerHTML = "Gordijn anti-zon";
       document.getElementById("price_title_tapis").innerHTML = "Tapijt";
-      document.getElementById("price_tapisensoie").innerHTML = "Zijden tapijt";
+      document.getElementById("price_tapisensoie").innerHTML = "Tapijt in zijde";
       document.getElementById("price_tapis").innerHTML = "Tapijt";
       document.getElementById("price_title_pyjama").innerHTML = "Pyjama";
-      document.getElementById("price_pantalonpyjama").innerHTML = "Pyjamabroek";
-      document.getElementById("price_vestepyjama").innerHTML = "Pyjamajas";
+      document.getElementById("price_pantalonpyjama").innerHTML = "Pyjama Broek";
+      document.getElementById("price_vestepyjama").innerHTML = "Pyjama Vest";
       document.getElementById("price_title_tablier").innerHTML = "Schort";
       document.getElementById("price_tablier").innerHTML = "Schort"; 
-      document.getElementById("price_tabliersangle").innerHTML = "Schort met bandjes"; 
-      document.getElementById("price_title_nappe").innerHTML = "Tafelkleed";
-      document.getElementById("price_nappe").innerHTML = "Tafelkleed";
-      document.getElementById("price_petitenappe").innerHTML = "Klein tafelkleed";
-      document.getElementById("price_napperonde").innerHTML = "Rond tafelkleed";
-      document.getElementById("price_grandenappe").innerHTML = "Groot tafelkleed";
+      document.getElementById("price_tabliersangle").innerHTML = "Schort voorbinder"; 
+      document.getElementById("price_title_nappe").innerHTML = "Nap";
+      document.getElementById("price_nappe").innerHTML = "Nap";
+      document.getElementById("price_petitenappe").innerHTML = "Nap klein";
+      document.getElementById("price_napperonde").innerHTML = "Nap rond";
+      document.getElementById("price_grandenappe").innerHTML = "Nap groot";
       document.getElementById("price_title_lingedebain").innerHTML = "Badlinnen";
-      document.getElementById("price_serviette").innerHTML = "Handdoek";
-      document.getElementById("price_peignoir").innerHTML = "Badjas";
+      document.getElementById("price_serviette").innerHTML = "Servet";
+      document.getElementById("price_peignoir").innerHTML = "Stofjas";
       document.getElementById("price_essuie").innerHTML = "Handdoek";
-      document.getElementById("price_essuiedebain").innerHTML = "Badhanddoek";
+      document.getElementById("price_essuiedebain").innerHTML = "HanddoekBadlaken";
       document.getElementById("price_mouchoirentissus").innerHTML = "Zakdoek";
       document.getElementById("price_title_autre").innerHTML = "Overig";
       document.getElementById("price_devis").innerHTML = "Offerte aanvragen";
@@ -145,26 +145,26 @@
       document.getElementById("price_devisthird").innerHTML = "Offerte aanvragen";
       document.getElementById("price_cuir").innerHTML = "Leer/Suède";
       document.getElementById("price_livraison").innerHTML = "Thuisbezorging";
-      document.getElementById("price_retouche").innerHTML = "Aanpassingen op aanvraag";
+      document.getElementById("price_retouche").innerHTML = "Retouche op aanvraag";
       document.getElementById("price_linge").innerHTML = "Beddengoed per gewicht";
-      document.getElementById("price_vetementsreligieux").innerHTML = "Religieuze kleding";
+      document.getElementById("price_vetementsreligieux").innerHTML = "Pastoorskleed";
       document.getElementById("price_salopette").innerHTML = "Overalls";
-      document.getElementById("price_ensemble").innerHTML = "Een set";
+      document.getElementById("price_ensemble").innerHTML = "Overall";
       document.getElementById("price_title_literie").innerHTML = "Beddengoed & Dekbedden";
-      document.getElementById("price_plaid").innerHTML = "Sprei";
-      document.getElementById("price_courverture1p").innerHTML = "Eenpersoonsdeken";
-      document.getElementById("price_courverture2p").innerHTML = "Tweepersoonsdeken";
-      document.getElementById("price_couette1p").innerHTML = "Eenpersoonsdekbed";
-      document.getElementById("price_couette2p").innerHTML = "Tweepersoonsdekbed";
-      document.getElementById("price_couetteplume1p").innerHTML = "Eenpersoonsverendekbed";
-      document.getElementById("price_couetteplume2p").innerHTML = "Tweepersoonsverendekbed";
-      document.getElementById("price_drap1p").innerHTML = "Eenpersoonslaken";
-      document.getElementById("price_drap2p").innerHTML = "Tweepersoonslaken";
-      document.getElementById("price_housse1p").innerHTML = "Eenpersoonsdekbedovertrek";
-      document.getElementById("price_housse2p").innerHTML = "Tweepersoonsdekbedovertrek";
-      document.getElementById("price_taie").innerHTML = "Kussensloop";
-      document.getElementById("price_traversin").innerHTML = "Sierkussen";
-      document.getElementById("price_couverturecouchage").innerHTML = "Deken";
+      document.getElementById("price_plaid").innerHTML = "Deken plaid";
+      document.getElementById("price_courverture1p").innerHTML = "Deken 1p.";
+      document.getElementById("price_courverture2p").innerHTML = "Deken 2p.";
+      document.getElementById("price_couette1p").innerHTML = "Donsdeken 1p.";
+      document.getElementById("price_couette2p").innerHTML = "Donsdeken 2p.";
+      document.getElementById("price_couetteplume1p").innerHTML = "Donsdeken pluim 1p.";
+      document.getElementById("price_couetteplume2p").innerHTML = "Donsdeken pluim 2p.";
+      document.getElementById("price_drap1p").innerHTML = "Laken 1p.";
+      document.getElementById("price_drap2p").innerHTML = "Laken 2p.";
+      document.getElementById("price_housse1p").innerHTML = "Dekbedovertrek 1p.";
+      document.getElementById("price_housse2p").innerHTML = "Dekbedovertrek 2p.";
+      document.getElementById("price_taie").innerHTML = "Fluwijn";
+      document.getElementById("price_traversin").innerHTML = "Peluw";
+      document.getElementById("price_couverturecouchage").innerHTML = "Slaapkleed";
       document.getElementById("end_sentence_price").innerHTML = "* De prijzen zijn indicatief en kunnen variëren afhankelijk van de staat en complexiteit van het textiel.";
       document.getElementById("title_contact_session").innerHTML = "Neem contact met ons op";
       document.getElementById("text_below_contact_title").innerHTML = "Ons team staat tot uw dienst om al uw vragen te beantwoorden.";
@@ -330,13 +330,13 @@
       document.getElementById("buttonSwitchToDutch").innerHTML = "NEERLANDAIS"; 
       document.getElementById("buttonSwitchToEnglish").innerHTML = "ENGLAIS";
       document.getElementById("service_title_nettoyageasec").innerHTML = "Nettoyage à sec";
-      document.getElementById("service_description_nettoyageasec").innerHTML = "Traitement délicat et professionnel de vos vêtements les plus précieux avec des produits de haute qualité.";
+      document.getElementById("service_description_nettoyageasec").innerHTML = "Traitement délicat et professionnel de vos vêtements les plus précieux avec nos produits de haute qualité.";
       document.getElementById("service_title_blanchisserie").innerHTML = "Blanchisserie";
       document.getElementById("service_description_blanchisserie").innerHTML = "Nous lavons vos vêtements du quotidien et vos pièces les plus précieuses : robes de soirée, robes de mariée, costumes… Nous nettoyons également tout votre linge de maison – draps, couettes, nappes, housses, coussins – avec des procédés professionnels qui garantissent douceur, fraîcheur et propreté impeccable.";
-      document.getElementById("service_title_rideaux").innerHTML = "Rideaux/Voiles";
+      document.getElementById("service_title_rideaux").innerHTML = "Rideaux";
       document.getElementById("service_description_rideaux").innerHTML = "Nettoyage expert de vos rideaux et voilages. Redonnez éclat et fraîcheur à votre décoration intérieure.";
       document.getElementById("service_title_tapis").innerHTML = "Tapis";
-      document.getElementById("service_description_tapis").innerHTML = "Nettoyage en profondeur de vos tapis et moquettes. Techniques spécialisées pour tous types de fibres.";
+      document.getElementById("service_description_tapis").innerHTML = "Nettoyage en profondeur de vos tapis. Techniques spécialisées pour tous types de fibres.";
       document.getElementById("service_title_retouche").innerHTML = "Retouches";
       document.getElementById("service_description_retouche").innerHTML = "Service de retouche et réparation textile. Ourlets, ajustements et modifications sur mesure par notre couturier professionnel.";
       document.getElementById("service_title_cuir").innerHTML = "Cuir/Daim";
@@ -521,7 +521,7 @@
         });
       });
     });
-
+/*
     function closeModal() {
       document.getElementById('closingModal').classList.add('hidden');
     }
@@ -530,6 +530,7 @@
     document.getElementById('closingModal').addEventListener('click', function(e) {
       if (e.target === this) closeModal();
     });
+*/
   </script>
   <style>
         :root {
@@ -2703,7 +2704,7 @@ header:not(.scrolled) .header-social-link:hover {
             </svg>
           </div>
           <h3 id="service_title_nettoyageasec">Nettoyage à sec</h3>
-          <p id="service_description_nettoyageasec">Traitement délicat et professionnel de vos vêtements les plus précieux avec des produits de haute qualité.</p>
+          <p id="service_description_nettoyageasec">Traitement délicat et professionnel de vos vêtements les plus précieux avec nos produits de haute qualité.</p>
         </div>
 
         <div class="service-card">
@@ -2722,7 +2723,7 @@ header:not(.scrolled) .header-social-link:hover {
               <path class="st0" d="M489.12,0H366.039h-16.082H162.043H72.364H8.909v13.97v220.361v7.762v15.524v7.762v230.966l5.174,4.154 c0.928,0.751,4.606,3.533,11.192,6.262C31.836,509.46,41.224,512,53.133,512h0.053l0.306-0.008v-0.008 c11.81-0.046,25.887-2.607,41.742-9.536l0.03-0.016c8.646-3.759,14.206-4.684,18.314-4.692c5.143,0.016,8.906,1.418,15.335,3.957 l2.888,1.137l-2.885-1.137c6.16,2.433,14.763,5.814,25.922,5.882v0.008l0.224,0.016h0.129h0.019h0.095h0.057l0.276-0.008v-0.008 c7.448-0.03,15.676-1.494,25.008-4.745l7.569-2.653l6.049-2.115l-23.628-61.325h170.724l-23.628,61.325l11.666,4.078l1.956,0.682 c9.195,3.206,17.306,4.662,24.667,4.737l0.22,0.031h0.36h0.038h0.057h0.113h0.012h0.012c11.328,0,20.026-3.45,26.25-5.906h0.004 c6.428-2.539,10.192-3.942,15.335-3.957c4.116,0.008,9.68,0.933,18.348,4.708h-0.003c15.691,6.86,29.624,9.423,41.362,9.514 l0.242,0.038h0.398h0.045h0.054h0.147v-0.008c11.833-0.023,21.18-2.54,27.71-5.23c6.588-2.729,10.264-5.511,11.192-6.262 l2.85-2.289l2.323-1.865V265.381v-7.762v-15.524v-7.762V0H489.12z M158.742,21.733h194.516c1.289,5.943,3.476,15.873,6.364,28.464 H152.379C155.255,37.652,157.45,27.691,158.742,21.733z M363.23,65.722c2.899,12.318,6.231,26.107,9.877,40.517 c6.159,24.326,13.182,50.326,20.422,73.666c6.974,22.43,14.061,42.238,21.07,56.223v27.805l-43.053,111.75H140.455l-43.053-111.75 v-27.805c7.008-13.985,14.096-33.793,21.069-56.223c11.512-37.122,22.51-81.072,30.302-114.183H363.23z M30.642,21.733h41.722 h70.49c-3.844,17.564-12.822,57.542-23.746,99.045c-5.685,21.604-11.89,43.602-18.14,62.985 c-5.481,17.018-11.045,32.073-16.146,42.806h-54.18V21.733z M30.642,242.094h51.236v15.524H30.642V242.094z M155.305,485.87 c-7.092-0.015-12.148-1.925-18.417-4.389c-6.166-2.426-13.588-5.488-23.306-5.473c-7.687-0.007-16.454,1.888-27.051,6.527 l7.114-3.108l-7.114,3.1c-13.508,5.897-24.613,7.74-33.398,7.747c-8.79-0.007-15.313-1.856-19.588-3.616 c-1.14-0.47-2.092-0.924-2.903-1.341V273.143h53.669l81.439,211.386C161.741,485.453,158.277,485.87,155.305,485.87z M155.608,415.016l-9.172-23.81h219.129l-9.176,23.81H155.608z M481.358,485.302c-3.824,1.993-11.324,4.966-22.49,4.966 c-8.786,0-19.891-1.843-33.4-7.74v0.008c-10.597-4.64-19.364-6.534-27.05-6.527c-9.722-0.015-17.139,3.047-23.306,5.473 c-6.269,2.464-11.324,4.374-18.416,4.389c-2.971,0-6.436-0.417-10.446-1.342l81.44-211.386h53.668V485.302z M481.358,257.618 h-51.235v-15.524h51.235V257.618z M481.358,226.569h-54.169c-5.935-12.485-12.481-30.753-18.833-51.266 c-10.677-34.407-21.01-75.205-28.647-107.338c-3.82-16.071-6.97-29.98-9.16-39.865c-0.527-2.365-0.994-4.488-1.402-6.368h112.212 V226.569z"></path> </g> </g>
             </svg>
           </div>
-          <h3 id="service_title_rideaux">Rideaux/Voiles</h3>
+          <h3 id="service_title_rideaux">Rideaux</h3>
           <p id="service_description_rideaux">Nettoyage expert de vos rideaux et voilages. Redonnez éclat et fraîcheur à votre décoration intérieure.</p>
         </div>
 
@@ -2733,7 +2734,7 @@ header:not(.scrolled) .header-social-link:hover {
             </svg>
           </div>
           <h3 id="service_title_tapis">Tapis</h3>
-          <p id="service_description_tapis">Nettoyage en profondeur de vos tapis et moquettes. Techniques spécialisées pour tous types de fibres.</p>
+          <p id="service_description_tapis">Nettoyage en profondeur de vos tapis. Techniques spécialisées pour tous types de fibres.</p>
         </div>
 
         <div class="service-card">
