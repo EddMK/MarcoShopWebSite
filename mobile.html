@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
   <meta charset="UTF-8">
   <title>MarcoShop</title>
+  <meta name="description" content="Marcoshop, service de blanchisserie et de pressing basé à Bruxelles">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/x-icon" href="annexe/logo without name transparent.png">
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -35,6 +36,7 @@
     }
 
     function changeTextToDutch(){
+      document.documentElement.lang = "nl";
       document.getElementById("textServices").innerHTML = "Diensten";
       document.getElementById("textPrix").innerHTML = "Prijzen";
       document.getElementById("textContact").innerHTML = "Contacteer ons";
@@ -178,6 +180,7 @@
     }
 
     function changeTextToEnglish(){
+      document.documentElement.lang = "en";
       document.getElementById("textServices").innerHTML = "Services";
       document.getElementById("textPrix").innerHTML = "Price";
       document.getElementById("textContact").innerHTML = "Contact us";
@@ -321,6 +324,7 @@
     }
 
     function changeTextToFrench(){
+      document.documentElement.lang = "fr";
       document.getElementById("textServices").innerHTML = "Services";
       document.getElementById("textPrix").innerHTML = "Prix";
       document.getElementById("textContact").innerHTML = "Contactez-nous";
